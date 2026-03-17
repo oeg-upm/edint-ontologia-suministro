@@ -103,7 +103,7 @@
             <mxRectangle height="30" width="60" x="-1190" y="-390" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="uVwvtnQwH_J1zhPupquc-60" parent="1" style="verticalAlign=middle;align=center;vsdxID=334;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;fontSize=12;" value="edintsum:ServiceMeter&lt;div&gt;(MedidorServicio)&lt;/div&gt;" vertex="1">
+        <mxCell id="uVwvtnQwH_J1zhPupquc-60" parent="1" style="verticalAlign=middle;align=center;vsdxID=334;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;fontSize=12;" value="edintsum:UtilityMeter&lt;div&gt;(MedidorServicio)&lt;/div&gt;" vertex="1">
           <mxGeometry height="40" width="150" x="680" y="50" as="geometry" />
         </mxCell>
         <mxCell id="uVwvtnQwH_J1zhPupquc-63" parent="1" style="verticalAlign=middle;align=center;vsdxID=334;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;fontSize=12;" value="edintinf:Facility&lt;div&gt;(Equipamiento)&lt;/div&gt;" vertex="1">
@@ -337,7 +337,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram name="Producción fotovoltaica" id="GxC2wxTae_ht-nD04WE6">
+  <diagram name="Generación-fotovoltaica" id="GxC2wxTae_ht-nD04WE6">
     <mxGraphModel dx="1207" dy="1121" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="_ZYP6Tod86Zwb3urXhbe-0" />
@@ -381,8 +381,8 @@
             <mxPoint x="-72" y="2" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="_ZYP6Tod86Zwb3urXhbe-88" parent="_ZYP6Tod86Zwb3urXhbe-1" style="verticalAlign=middle;align=center;vsdxID=334;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;fontSize=12;fillColor=#eeeeee;strokeColor=#000000;fontStyle=4;fontColor=light-dark(#000000,#000000);" value="&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;edintsum:&lt;/font&gt;&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;photovoltaicElectricityGeneracion&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;(generacion&lt;/font&gt;&lt;font style=&quot;&quot;&gt;&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;E&lt;/font&gt;&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;l&lt;/font&gt;&lt;/font&gt;&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;ectricidad&lt;/font&gt;&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;)&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="37.11" width="231" x="950" y="-60.00000000000002" as="geometry" />
+        <mxCell id="_ZYP6Tod86Zwb3urXhbe-88" parent="_ZYP6Tod86Zwb3urXhbe-1" style="verticalAlign=middle;align=center;vsdxID=334;shape=stencil(nZBLDoAgDERP0z3SIyjew0SURgSD+Lu9kMZoXLhwN9O+tukAlrNpJg1SzDH4QW/URgNYgZTkjA4UkwJUgGXng+6DX1zLfmoymdXo17xh5zmRJ6Q42BWCfc2oJfdAr+Yv+AP9Cb7OJ3H/2JG1HNGz/84klThPVCc=);labelBackgroundColor=none;rounded=0;html=1;whiteSpace=wrap;fontSize=12;fillColor=#eeeeee;strokeColor=#000000;fontStyle=4;fontColor=light-dark(#000000,#000000);" value="&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;edintsum:&lt;/font&gt;&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;generatedElectricity&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;direction: ltr; letter-spacing: 0px; line-height: 120%; opacity: 1;&quot;&gt;(electricidadGenerada)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="37.11" width="260" x="950" y="-60" as="geometry" />
         </mxCell>
         <mxCell id="_ZYP6Tod86Zwb3urXhbe-89" edge="1" parent="_ZYP6Tod86Zwb3urXhbe-1" source="_ZYP6Tod86Zwb3urXhbe-88" style="endArrow=classic;html=1;rounded=0;dashed=1;exitX=0.518;exitY=0.003;exitDx=0;exitDy=0;exitPerimeter=0;" target="supBS49qIduqazvzs8qN-13" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
