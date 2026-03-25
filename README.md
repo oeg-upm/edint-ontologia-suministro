@@ -1,30 +1,20 @@
-# XXX Ontology
+# Ontología de Suministro (Utility ontology)
 
-The XXX ontology describes the domain of XXX
+La ontología de Suministro representa los datos relacionados con los servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. 
 
+# Propósito y alcance de la ontología (Purpose and scope of the ontology)
 
-# Purpose and scope of the vocabulary
+El propósito de esta ontología es el de proporcionar un vocabulario común para la representación de las entidades y datos principales de los servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. Su alcance es el de suministros como electricidad, gas, agua, entre otros. La infraestructura de un municipio puede incluir todos los elementos de la infraestructura tales como centros educativos, centros culturales y sociales, centros de salud, aparcamientos así como todos los elementos urbanos. Su alcance cubre los datos que pueden ser utilizados con los propósitos de conocer y gestionar el consumo de recursos por el municipio  que es parte de las funciones habituales de las entidades locales.
 
-The purpose of the XXX ontology is to YYYY. 
-The scope of the XXX ontology is limited to ZZZ.
+# Prefijo y espacio de nombres (Prefix and namespace)
+El prefijo de la ontología de Suministro es: edintsum y es publicada en el espacio de nombres: [http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#](http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#) 
 
-# Ontology prefix and namespace
+# Modelo conceptual (Ontology conceptualization)
+![Modelo conceptual](diagrams/diagrama-conceptual.png)
 
-The XXX ontology prefix is: XXX and it is published under the namespace: https://webdomain.ext/def/domain/subdomain# 
+# Estructura del repositorio (Repository structure)
 
-# Ontology Conceptualization Image
-
-Every ontology development repository should include, in this root README, a visual representation of the ontology conceptualization.
-This image helps users and contributors quickly understand the ontology’s structure, key concepts, and relationships.
-- The image should be located in the conceptualization folder.
-- Accepted formats: .svg, .png, or .drawio.
-- It should be referenced in this README using Markdown syntax, for example:
-
-![Ontology Conceptualization Diagram](diagrams/diagram.png)
-
-# Reposity structure
-
-The repository should contain (at least) the following folders:
+El repositorio contiene los siguientes directorios:
 
 | Folder | Description |
 |--------|--------------|
@@ -36,12 +26,10 @@ The repository should contain (at least) the following folders:
 | **requirements/** | Contains all documents used to define the ontology’s requirements: data example, competency questions, functional requirements, use cases, etc. |
 | **shapes/** | Contains the SHACL shapes used to define and validate ontology constraints. |
 
-# Project maintenance
+# Mantenimiento y evolución (Maintenance and evolution)
 
-To manage those incidents or suggested improvements with respect to the vocabulary, we recommend you to follow
-the guides provided in [Issues Management](https://github.com/nombre-repositorio/wiki/issues-management) to
-generate an issue (work in progress)
+Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guía proporcionadas en ([Issues Management](https://github.com/telefonicasc/edint-ontologia-suministro/issues)) para generar una incidencia (trabajo en progreso).
 
-# Funding
+# Financiación (Funding)
 
-Add here project funding and needed images.
+Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es)).
