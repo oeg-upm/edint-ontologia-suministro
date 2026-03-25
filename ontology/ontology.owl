@@ -1,2195 +1,1190 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+<rdf:RDF xmlns="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro"
      xml:base="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:gsp="http://www.opengis.net/ont/geosparql#"
+     xmlns:mod="https://w3id.org/mod#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:qudt="http://qudt.org/schema/qudt/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro"
-     versionIRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro/0.1.0">
-    <Prefix name="" IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro"/>
-    <Prefix name="gsp" IRI="http://www.opengis.net/ont/geosparql#"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="qudt" IRI="http://qudt.org/schema/qudt/"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="sosa" IRI="http://www.w3.org/ns/sosa/"/>
-    <Prefix name="time" IRI="http://www.w3.org/2006/time#"/>
-    <Prefix name="vann" IRI="http://purl.org/vocab/vann/"/>
-    <Prefix name="saref" IRI="https://saref.etsi.org/core/"/>
-    <Prefix name="schema" IRI="http://schema.org/"/>
-    <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
-    <Prefix name="edintinf" IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#"/>
-    <Prefix name="edintkos" IRI="http://vocab.linkeddata.es/datosabiertos/kos/edint/"/>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:created"/>
-        <Literal>2026-03-23</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:creator"/>
-        <Literal>Daniel Doña</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:creator"/>
-        <Literal>Edna Ruckhaus</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:creator"/>
-        <Literal>Lucía Sánchez</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:creator"/>
-        <Literal>Oscar Corcho</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:creator"/>
-        <Literal>Socorro Bernardos</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-        <Literal xml:lang="es">La ontología de suministros describe todos los conceptos relacionados con los servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. Su alcance es el de suministros como electricidad, gas, agua, entre otros.</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-        <Literal xml:lang="en">The Utilities ontology describes all concepts related to the utilities provided to a municipality&apos;s infrastructure elements and the measurement of their consumption. Its scope covers utilities such as electricity, gas, water, and others.</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:license"/>
-        <IRI>https://creativecommons.org/licenses/by/4.0/</IRI>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:title"/>
-        <Literal xml:lang="es">Ontología de Suministros</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dcterms:title"/>
-        <Literal xml:lang="en">The Utilities Ontology</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="vann:preferredNamespacePrefix"/>
-        <Literal>edintsum</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="vann:preferredNamespaceUri"/>
-        <IRI>#</IRI>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
-        <Literal>0.1.0</Literal>
-    </Annotation>
-    <Declaration>
-        <Class abbreviatedIRI="qudt:Concept"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="qudt:QuantityValue"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="qudt:Unit"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="edintinf:Facility"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="edintinf:UrbanElement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#UtilityConsumption"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#UtilityContract"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#UtilityMeter"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#UtilityRate"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#UtilitySupplyPoint"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="gsp:Geometry"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://www.opengis.net/ont/sf#Point"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="time:Instant"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="time:Interval"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="time:ProperInterval"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="sosa:ObservableProperty"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="sosa:Observation"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="sosa:Sensor"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="saref:Device"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="saref:Meter"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="https://schema.org/Organization"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="qudt:applicableUnit"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="qudt:hasUnit"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="qudt:unitFor"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="schema:manufacturer"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#appliesTo"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#contractHolder"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasMeterType"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasRate"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasUtilitySupplyPoint"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasUtilityType"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="gsp:hasGeometry"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="time:hasBeginning"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="time:hasEnd"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="time:hasTime"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:hasResult"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:isResultOf"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:observes"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:phenomenonTime"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="sosa:wasObservedBy"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="dcterms:identifier"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="qudt:value"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:hasXSDDuration"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:inXSDDateTimeStamp"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:inXSDgYearMonth"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="sosa:hasSimpleResult"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="sosa:resultTime"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="https://datos.ign.es/def/geo_core#xETRS89"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="https://datos.ign.es/def/geo_core#yETRS89"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#electricityConsumption"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#gasConsumption"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#waterConsumption"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual abbreviatedIRI="edintkos:MeterType"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual abbreviatedIRI="edintkos:UtilityType"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/source"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dcterms:contributor"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dcterms:created"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dcterms:creator"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dcterms:issued"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dcterms:license"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dcterms:title"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="vann:preferredNamespacePrefix"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="vann:preferredNamespaceUri"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="qudt:informativeReference"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="schema:rangeIncludes"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="owl:versionIRI"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#historyNote"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="https://w3id.org/mod#createdWith"/>
-    </Declaration>
-    <Declaration>
-        <Datatype abbreviatedIRI="qudt:LatexString"/>
-    </Declaration>
-    <Declaration>
-        <Datatype abbreviatedIRI="rdf:HTML"/>
-    </Declaration>
-    <Declaration>
-        <Datatype abbreviatedIRI="xsd:anySimpleType"/>
-    </Declaration>
-    <Declaration>
-        <Datatype abbreviatedIRI="xsd:duration"/>
-    </Declaration>
-    <Declaration>
-        <Datatype abbreviatedIRI="xsd:gYearMonth"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="qudt:Quantifiable"/>
-    </Declaration>
-    <EquivalentClasses>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-        <ObjectUnionOf>
-            <Class abbreviatedIRI="time:Instant"/>
-            <Class abbreviatedIRI="time:Interval"/>
-        </ObjectUnionOf>
-    </EquivalentClasses>
-    <SubClassOf>
-        <Class abbreviatedIRI="qudt:QuantityValue"/>
-        <Class abbreviatedIRI="qudt:Concept"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="qudt:QuantityValue"/>
-        <Class abbreviatedIRI="qudt:Quantifiable"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="qudt:QuantityValue"/>
-        <ObjectMaxCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="qudt:hasUnit"/>
-        </ObjectMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="qudt:Unit"/>
-        <Class abbreviatedIRI="qudt:Concept"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta"/>
-        <Class abbreviatedIRI="edintinf:Facility"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad"/>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking"/>
-        <Class abbreviatedIRI="edintinf:Facility"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="edintinf:Facility"/>
-        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="edintinf:UrbanElement"/>
-        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#UtilityConsumption"/>
-        <Class abbreviatedIRI="sosa:Observation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#UtilityMeter"/>
-        <Class abbreviatedIRI="sosa:Sensor"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#UtilityMeter"/>
-        <Class abbreviatedIRI="saref:Meter"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#UtilitySupplyPoint"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:Instant"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:Interval"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="saref:Meter"/>
-        <Class abbreviatedIRI="saref:Device"/>
-    </SubClassOf>
-    <DisjointClasses>
-        <Class abbreviatedIRI="time:Instant"/>
-        <Class abbreviatedIRI="time:ProperInterval"/>
-    </DisjointClasses>
-    <ClassAssertion>
-        <Class abbreviatedIRI="sosa:ObservableProperty"/>
-        <NamedIndividual IRI="#electricityConsumption"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class abbreviatedIRI="sosa:ObservableProperty"/>
-        <NamedIndividual IRI="#gasConsumption"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class abbreviatedIRI="sosa:ObservableProperty"/>
-        <NamedIndividual IRI="#waterConsumption"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <NamedIndividual abbreviatedIRI="edintkos:MeterType"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <NamedIndividual abbreviatedIRI="edintkos:UtilityType"/>
-    </ClassAssertion>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="time:hasBeginning"/>
-        <ObjectProperty abbreviatedIRI="time:hasTime"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="time:hasEnd"/>
-        <ObjectProperty abbreviatedIRI="time:hasTime"/>
-    </SubObjectPropertyOf>
-    <InverseObjectProperties>
-        <ObjectProperty abbreviatedIRI="qudt:hasUnit"/>
-        <ObjectProperty abbreviatedIRI="qudt:unitFor"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty abbreviatedIRI="sosa:hasResult"/>
-        <ObjectProperty abbreviatedIRI="sosa:isResultOf"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
-        <ObjectProperty abbreviatedIRI="sosa:wasObservedBy"/>
-    </InverseObjectProperties>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#appliesTo"/>
-        <Class IRI="#UtilityContract"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#contractHolder"/>
-        <Class IRI="#UtilityContract"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasMeterType"/>
-        <Class abbreviatedIRI="saref:Meter"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasRate"/>
-        <Class IRI="#UtilityContract"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasUtilitySupplyPoint"/>
-        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasUtilityType"/>
-        <Class IRI="#UtilitySupplyPoint"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="gsp:hasGeometry"/>
-        <Class abbreviatedIRI="gsp:Feature"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="time:hasBeginning"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="time:hasEnd"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
-        <Class abbreviatedIRI="sosa:Observation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
-        <Class abbreviatedIRI="sosa:Observation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
-        <Class abbreviatedIRI="sosa:Observation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="sosa:observes"/>
-        <Class abbreviatedIRI="sosa:Sensor"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="schema:manufacturer"/>
-        <Class IRI="https://schema.org/Organization"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#appliesTo"/>
-        <Class IRI="#UtilitySupplyPoint"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#contractHolder"/>
-        <Class IRI="https://schema.org/Organization"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasMeterType"/>
-        <ObjectHasValue>
-            <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
-            <NamedIndividual abbreviatedIRI="edintkos:MeterType"/>
-        </ObjectHasValue>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasRate"/>
-        <Class IRI="#UtilityRate"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasUtilitySupplyPoint"/>
-        <Class IRI="#UtilitySupplyPoint"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasUtilityType"/>
-        <ObjectHasValue>
-            <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
-            <NamedIndividual abbreviatedIRI="edintkos:UtilityType"/>
-        </ObjectHasValue>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="gsp:hasGeometry"/>
-        <Class abbreviatedIRI="gsp:Geometry"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="time:hasBeginning"/>
-        <Class abbreviatedIRI="time:Instant"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="time:hasEnd"/>
-        <Class abbreviatedIRI="time:Instant"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="time:hasTime"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
-        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
-        <Class abbreviatedIRI="sosa:Sensor"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
-        <Class abbreviatedIRI="sosa:ObservableProperty"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="sosa:observes"/>
-        <Class abbreviatedIRI="sosa:ObservableProperty"/>
-    </ObjectPropertyRange>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:hasXSDDuration"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:inXSDDateTimeStamp"/>
-        <Class abbreviatedIRI="time:Instant"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="sosa:hasSimpleResult"/>
-        <Class abbreviatedIRI="sosa:Observation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="sosa:resultTime"/>
-        <Class abbreviatedIRI="sosa:Observation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="https://datos.ign.es/def/geo_core#xETRS89"/>
-        <Class IRI="http://www.opengis.net/ont/sf#Point"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="https://datos.ign.es/def/geo_core#yETRS89"/>
-        <Class IRI="http://www.opengis.net/ont/sf#Point"/>
-    </DataPropertyDomain>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="dcterms:identifier"/>
-        <Datatype abbreviatedIRI="rdfs:Literal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:hasXSDDuration"/>
-        <Datatype abbreviatedIRI="xsd:duration"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:inXSDDateTimeStamp"/>
-        <Datatype abbreviatedIRI="xsd:dateTimeStamp"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:inXSDgYearMonth"/>
-        <Datatype abbreviatedIRI="xsd:gYearMonth"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="sosa:resultTime"/>
-        <Datatype abbreviatedIRI="xsd:dateTime"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="https://datos.ign.es/def/geo_core#xETRS89"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="https://datos.ign.es/def/geo_core#yETRS89"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
-    </DataPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>dcterms:identifier</AbbreviatedIRI>
-        <Literal xml:lang="en">An unambiguous reference to the resource within a given context.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>dcterms:identifier</AbbreviatedIRI>
-        <Literal xml:lang="es">Una referencia no ambigüa al recurso dentro de un contexto determinado.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>dcterms:identifier</AbbreviatedIRI>
-        <AbbreviatedIRI>dcterms:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>dcterms:identifier</AbbreviatedIRI>
-        <Literal xml:lang="es">identificador</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>dcterms:identifier</AbbreviatedIRI>
-        <Literal xml:lang="en">identifier</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>qudt:QuantityValue</AbbreviatedIRI>
-        <Literal xml:lang="en">A Quantity Value  expresses the magnitude and kind of a quantity and is given by the product of a numerical value n and a unit of measure U. The number multiplying the unit is referred to as the numerical value of the quantity expressed in that unit. Refer to &quot;http://physics.nist.gov/Pubs/SP811/sec07.html&quot;, NIST SP 811 section 7,  for more on quantity values.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>qudt:QuantityValue</AbbreviatedIRI>
-        <IRI>http://qudt.org/schema/qudt</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>qudt:QuantityValue</AbbreviatedIRI>
-        <Literal>Quantity value</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>qudt:Unit</AbbreviatedIRI>
-        <Literal xml:lang="en">A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities of the same kind (more generally of equivalent dimension). 
-  For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). 
-  Any measurement of the length can be expressed as a number multiplied by the unit meter. 
-  More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  Q = nU.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>qudt:Unit</AbbreviatedIRI>
-        <IRI>http://qudt.org/schema/qudt</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>qudt:Unit</AbbreviatedIRI>
-        <Literal xml:lang="en">Unit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-        <AbbreviatedIRI>qudt:applicableUnit</AbbreviatedIRI>
-        <Literal xml:lang="en">See https://github.com/qudt/qudt-public-repo/wiki/Advanced-User-Guide#4-computing-applicable-units-for-a-quantitykind on how `qudt:applicableUnit` is computed from `qudt:hasQuantityKind` and then materialized</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>qudt:applicableUnit</AbbreviatedIRI>
-        <IRI>http://qudt.org/3.1.11/schema/shacl/qudt</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>qudt:applicableUnit</AbbreviatedIRI>
-        <IRI>http://qudt.org/schema/qudt</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>qudt:applicableUnit</AbbreviatedIRI>
-        <Literal>applicable unit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-        <AbbreviatedIRI>qudt:hasUnit</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">This property relates a factor unit its unit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-        <AbbreviatedIRI>qudt:hasUnit</AbbreviatedIRI>
-        <Literal xml:lang="en">This property relates a factor unit to its unit or a system of units with a unit of measure that is either 
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:sosa="http://www.w3.org/ns/sosa/"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:saref="https://saref.etsi.org/core/"
+     xmlns:schema="http://schema.org/"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:edintinf="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#"
+     xmlns:edintkos="http://vocab.linkeddata.es/datosabiertos/kos/edint/">
+    <owl:Ontology rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro">
+        <owl:versionIRI rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro/0.1.0"/>
+        <dcterms:created>2026-03-23</dcterms:created>
+        <dcterms:creator>Daniel Doña</dcterms:creator>
+        <dcterms:creator>Edna Ruckhaus</dcterms:creator>
+        <dcterms:creator>Lucía Sánchez</dcterms:creator>
+        <dcterms:creator>Oscar Corcho</dcterms:creator>
+        <dcterms:creator>Socorro Bernardos</dcterms:creator>
+        <dcterms:description xml:lang="es">La ontología de suministros describe todos los conceptos relacionados con los servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. Su alcance es el de suministros como electricidad, gas, agua, entre otros.</dcterms:description>
+        <dcterms:description xml:lang="en">The Utilities ontology describes all concepts related to the utilities provided to a municipality&apos;s infrastructure elements and the measurement of their consumption. Its scope covers utilities such as electricity, gas, water, and others.</dcterms:description>
+        <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <dcterms:title xml:lang="es">Ontología de Suministros</dcterms:title>
+        <dcterms:title xml:lang="en">The Utilities Ontology</dcterms:title>
+        <vann:preferredNamespacePrefix>edintsum</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#"/>
+        <owl:versionInfo>0.1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/informativeReference -->
+
+    <owl:AnnotationProperty rdf:about="http://qudt.org/schema/qudt/informativeReference"/>
+    
+
+
+    <!-- http://schema.org/domainIncludes -->
+
+    <owl:AnnotationProperty rdf:about="http://schema.org/domainIncludes"/>
+    
+
+
+    <!-- http://schema.org/rangeIncludes -->
+
+    <owl:AnnotationProperty rdf:about="http://schema.org/rangeIncludes"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#versionIRI -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionIRI"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#editorialNote -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#editorialNote"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#historyNote -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#historyNote"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#note"/>
+    
+
+
+    <!-- https://w3id.org/mod#createdWith -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/mod#createdWith"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qudt.org/schema/qudt/LatexString -->
+
+    <rdfs:Datatype rdf:about="http://qudt.org/schema/qudt/LatexString"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#anySimpleType -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#anySimpleType"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#duration -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#duration"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYearMonth -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYearMonth"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qudt.org/schema/qudt/applicableUnit -->
+
+    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/applicableUnit">
+        <dcterms:description xml:lang="en">See https://github.com/qudt/qudt-public-repo/wiki/Advanced-User-Guide#4-computing-applicable-units-for-a-quantitykind on how `qudt:applicableUnit` is computed from `qudt:hasQuantityKind` and then materialized</dcterms:description>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/3.1.11/schema/shacl/qudt"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
+        <rdfs:label>applicable unit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/hasUnit -->
+
+    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/hasUnit">
+        <owl:inverseOf rdf:resource="http://qudt.org/schema/qudt/unitFor"/>
+        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">This property relates a factor unit its unit</dcterms:description>
+        <dcterms:description xml:lang="en">This property relates a factor unit to its unit or a system of units with a unit of measure that is either 
 a) defined by the system, or 
 b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system. 
 
-Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-        <AbbreviatedIRI>qudt:hasUnit</AbbreviatedIRI>
-        <Literal>This property relates a factor unit to its unit or system of units with a unit of measure that is either:
+Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system.</dcterms:description>
+        <dcterms:description>This property relates a factor unit to its unit or system of units with a unit of measure that is either:
 a) defined by the system,
 b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system,
  c) a reference to the unit of measure of a quantity (variable or constant) of interest.
 Systems of units may distinguish between base and derived units.
   Base units are the units which measure the base quantities for the corresponding system of quantities. 
   The base units are used to define units for all other quantities as products of powers of the base units. 
-  Such units are called derived units for the system.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>qudt:hasUnit</AbbreviatedIRI>
-        <IRI>http://qudt.org/3.1.11/schema/shacl/qudt</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>qudt:hasUnit</AbbreviatedIRI>
-        <IRI>http://qudt.org/schema/qudt</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>qudt:hasUnit</AbbreviatedIRI>
-        <Literal>has unit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-        <AbbreviatedIRI>qudt:value</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">A property to relate an observable thing with a value of any kind</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>qudt:value</AbbreviatedIRI>
-        <IRI>http://qudt.org/schema/qudt</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>qudt:value</AbbreviatedIRI>
-        <Literal>value</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>schema:manufacturer</AbbreviatedIRI>
-        <Literal xml:lang="es">El fabricante del producto.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>schema:manufacturer</AbbreviatedIRI>
-        <Literal xml:lang="en">The manufacturer of the product.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>schema:manufacturer</AbbreviatedIRI>
-        <AbbreviatedIRI>schema:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>schema:manufacturer</AbbreviatedIRI>
-        <Literal xml:lang="es">fabricante</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>schema:manufacturer</AbbreviatedIRI>
-        <Literal xml:lang="en">manufacturer</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta</IRI>
-        <Literal xml:lang="es">Lugar donde se puede tanto dejar como recoger las bicicletas. Está compuesto de anclajes</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta</IRI>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta</IRI>
-        <Literal xml:lang="es">Estación de bicicletas</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo</IRI>
-        <Literal xml:lang="en">Section/s of a Track defined by a starting and an ending Point.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo</IRI>
-        <Literal xml:lang="es">Tramo definido por un punto de inicio y fin que puede pertenecer a una o más vías</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo</IRI>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/trafico</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo</IRI>
-        <Literal xml:lang="en">Section of Track</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo</IRI>
-        <Literal xml:lang="es">Tramo</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia</IRI>
-        <Literal xml:lang="es">Comunidad Autónoma o Ciudad Autónoma</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia</IRI>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia</IRI>
-        <Literal xml:lang="es">Autonomía</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio</IRI>
-        <Literal xml:lang="es">Un barrio es cada una de las partes en que se dividen los pueblos grandes o sus distritos [fuente: Diccionario de la Real Academia (DRAE) 2011]</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio</IRI>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio</IRI>
-        <Literal xml:lang="es">Barrio</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad</IRI>
-        <Literal xml:lang="es">Una ciudad es un área urbana en la que predominan fundamentalmente la industria y los servicios [fuente: Wikipedia]</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad</IRI>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad</IRI>
-        <Literal>Ciudad</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito</IRI>
-        <Literal xml:lang="es">Un distrito es cada una de las demarcaciones en que se subdivide un territorio o una población para distribuir y ordenar el ejercicio de los derechos civiles y políticos, o de las funciones públicas, o de los servicios administrativos [fuente: Diccionario de la Real Academia (DRAE) 2011]</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito</IRI>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito</IRI>
-        <Literal xml:lang="es">Distrito</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio</IRI>
-        <Literal xml:lang="es">Un Municipio es el ente local definido en el artículo 140 de la Constitución española y la entidad básica de la organización territorial del Estado según el artículo 1 de la Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local. Tiene personalidad jurídica y plena capacidad para el cumplimiento de sus fines. La delimitación territorial de Municipio está recogida del REgistro Central de Cartografía del IGN.
-Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por el Registro de Entidades Locales del Ministerio de Política Territorial, en http://www.ine.es/nomen2/index.do</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio</IRI>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio</IRI>
-        <Literal xml:lang="es">Municipio</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia</IRI>
-        <Literal xml:lang="es">Entidad local con personalidad jurídica propia, determinada por la agrupación de Municipios y división territorial para el cumplimiento de las actividades del Estado. La delimitación territorial de Provincia está recogida en el Registro Central de Cartografía del IGN [fuente: Modelo de Direcciones de la Administración General del Estado v.2]
-Su identificador, que se especifica con la propiedad dct:identifier, es el proporcionado por el INE en http://www.ine.es/daco/daco42/codmun/codmun09/09codmun.xls
-Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por el Registro de Entidades Locales del Ministerio de Política Territorial, en http://www.ine.es/nomen2/index.do</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia</IRI>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia</IRI>
-        <Literal>Provincia</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking</IRI>
-        <Literal xml:lang="es">Aparcamiento para diferentes tipos de vehículo que incluye instalaciones o superficies de aparcamiento fuera de la vía pública o zonas de aparcamiento en la vía pública para residentes, no residentes o libres.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking</IRI>
-        <Literal xml:lang="en">Parking for different types of vehicles, including off-street parking facilities or on-street parking zones for residents, non-residents, or free parking.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking</IRI>
-        <Literal xml:lang="es">Aparcamiento</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking</IRI>
-        <Literal xml:lang="en">Parking</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>edintinf:Facility</AbbreviatedIRI>
-        <Literal xml:lang="es">Hace referencia a edificios de servicios (públicos o privados), zonas de ocio, zonas comerciales o cualquier otro elemento  que afecte directamente a la movilidad, actuando como un foco de atracción de personas o vehículos.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>edintinf:Facility</AbbreviatedIRI>
-        <Literal xml:lang="en">It refers to service buildings (public or private), leisure areas, commercial areas or any other element that directly affects mobility, acting as a focus of attraction for persons or vehicles.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>edintinf:Facility</AbbreviatedIRI>
-        <Literal xml:lang="es">Equipamiento</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>edintinf:Facility</AbbreviatedIRI>
-        <Literal xml:lang="en">Facility</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>edintinf:InfrastructureElement</AbbreviatedIRI>
-        <Literal xml:lang="es">Representa el conjunto de todos los elementos de la infraestructura que generan movilidad y elementos urbanos tales como semáforos, señales viales, pilonas, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>edintinf:InfrastructureElement</AbbreviatedIRI>
-        <Literal xml:lang="en">Represents the set of all infrastructure elements that generate mobility and urban elements such as traffic lights, road signs, bollards, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>edintinf:InfrastructureElement</AbbreviatedIRI>
-        <Literal xml:lang="es">Elemento de la infraestructura</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>edintinf:InfrastructureElement</AbbreviatedIRI>
-        <Literal xml:lang="en">Infrastructure element</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>edintinf:UrbanElement</AbbreviatedIRI>
-        <Literal xml:lang="es">Comprende el inventario de elementos urbanos tales como señales viales, semáforos, pilonas, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>edintinf:UrbanElement</AbbreviatedIRI>
-        <Literal xml:lang="en">It includes the inventory of urban elements such as road signs, traffic lights, bollards, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>edintinf:UrbanElement</AbbreviatedIRI>
-        <Literal xml:lang="es">Elemento urbano</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>edintinf:UrbanElement</AbbreviatedIRI>
-        <Literal xml:lang="en">Urban element</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UtilityConsumption</IRI>
-        <Literal xml:lang="en">Amount of utility consumed over a specific period.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UtilityConsumption</IRI>
-        <Literal xml:lang="es">Cantidad de suministro consumido durante un período específico.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityConsumption</IRI>
-        <Literal xml:lang="es">Consumo suministro</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityConsumption</IRI>
-        <Literal xml:lang="en">Utility consumption</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UtilityContract</IRI>
-        <Literal xml:lang="es">Acuerdo entre un proveedor de suministros y un consumidor que define los términos, tarifas, calidad del suministro y responsabilidades para la prestación de suministros esenciales como electricidad, agua, gas, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UtilityContract</IRI>
-        <Literal xml:lang="en">Agreement between a utility provider and a consumer that defines the terms, rates, service quality, and responsibilities for providing essential utilities like electricity, water, gas, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityContract</IRI>
-        <Literal xml:lang="es">Contrato suministro</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityContract</IRI>
-        <Literal xml:lang="en">Utility contract</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UtilityMeter</IRI>
-        <Literal xml:lang="en">Device that measures the consumption of a utility, for example electricity, gas, water, or heating.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UtilityMeter</IRI>
-        <Literal xml:lang="es">Dispositivo que mide el consumo de un suministro, por ejemplo, electricidad, gas, agua o calefacción.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityMeter</IRI>
-        <Literal xml:lang="es">Medidor suministro</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityMeter</IRI>
-        <Literal xml:lang="en">Utility meter</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityRate</IRI>
-        <Literal xml:lang="en">A utility rate is the specific price structure or tariff charged by a service provider for a unit of consumption of a utility, such as kilowatt-hours of electricity or cubic meters of water.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityRate</IRI>
-        <Literal xml:lang="es">La tarifa de un suministro es la estructura de precios o tarifa específica que cobra un proveedor de suministros por una unidad de consumo de un suministro, como kilovatios-hora de electricidad o metros cúbicos de agua.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityRate</IRI>
-        <Literal xml:lang="es">Tarifa suministro</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilityRate</IRI>
-        <Literal xml:lang="en">Utility rate</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UtilitySupplyPoint</IRI>
-        <Literal xml:lang="en">Point of the infrastructure element where a utility is supplied. Generally associated with a utility meter (sensor).</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UtilitySupplyPoint</IRI>
-        <Literal xml:lang="es">Punto en donde se realiza el suministro de un servicio para un elemento de la infraestructura municipal. Asociado en general a un medidor (sensor).</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilitySupplyPoint</IRI>
-        <Literal xml:lang="es">Punto de suministro de servicio</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UtilitySupplyPoint</IRI>
-        <Literal xml:lang="en">Utility supply point</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#appliesTo</IRI>
-        <Literal xml:lang="es">Relación entre el contrato de suministro y el punto de suministro de servicio al que se aplica.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#appliesTo</IRI>
-        <Literal xml:lang="en">Relationship between the utility contract and the utillity supply point which it applies to.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#appliesTo</IRI>
-        <Literal xml:lang="es">aplicadoEn</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#appliesTo</IRI>
-        <Literal xml:lang="en">applies to</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#contractHolder</IRI>
-        <Literal xml:lang="es">Relación entre un contrato de suministro de servicio y la organización que es titular del contrato.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#contractHolder</IRI>
-        <Literal xml:lang="en">Relationship between a utility contract and the organization that holds the contract.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#contractHolder</IRI>
-        <Literal xml:lang="en">contract holder</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#contractHolder</IRI>
-        <Literal xml:lang="es">titular contrato</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#electricityConsumption</IRI>
-        <Literal xml:lang="es">consumo de electricidad</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#electricityConsumption</IRI>
-        <Literal xml:lang="en">electricity consumption</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#gasConsumption</IRI>
-        <Literal xml:lang="es">consumo de gas</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#gasConsumption</IRI>
-        <Literal xml:lang="en">gas consumption</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasMeterType</IRI>
-        <Literal xml:lang="es">Relación entre el Medidor y una taxonomía de tipos de medidores. Por ejemplo,  &quot;externo&quot;, &quot;procesado&quot;, &quot;telemedida&quot;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasMeterType</IRI>
-        <Literal xml:lang="en">Relationship between the meter and a taxonomy of meter types. For example, &quot;external&quot;, &quot;processed&quot;, &quot;telemetry&quot;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasMeterType</IRI>
-        <Literal xml:lang="en">has meter type</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasMeterType</IRI>
-        <Literal xml:lang="es">tiene tipo medidor</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasRate</IRI>
-        <Literal xml:lang="es">Relación entre un contrato de suministro de un servicio y la tarifa que se aplica en dicho contrato.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasRate</IRI>
-        <Literal xml:lang="en">Relationship between a utility contracto and the rate that is applied in the contract.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasRate</IRI>
-        <Literal xml:lang="en">has rate</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasRate</IRI>
-        <Literal xml:lang="es">tiene tarifa</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasUtilitySupplyPoint</IRI>
-        <Literal xml:lang="es">Relación entre un elemento de la infraestructura y un punto de suministro de servicio.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasUtilitySupplyPoint</IRI>
-        <Literal xml:lang="en">Relationship between an infrastructure element and a utility supply point.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasUtilitySupplyPoint</IRI>
-        <Literal xml:lang="en">has utility supply point</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasUtilitySupplyPoint</IRI>
-        <Literal xml:lang="es">tiene punto de suministro de servicio</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasUtilityType</IRI>
-        <Literal xml:lang="es">Tipo de suministro asociado a un punto de suministro de un servicio. Puede ser por ejemplo electricidad, aua, gas. Los tipos de suministro son conceptos definidos en una taxonomía (esquema de conceptos SKOS).</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasUtilityType</IRI>
-        <Literal xml:lang="en">Type of utility associated to a utility supply point. It can be for example eectricity, water, gas, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasUtilityType</IRI>
-        <Literal xml:lang="en">has utility type</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasUtilityType</IRI>
-        <Literal xml:lang="es">tiene tipo  suministro</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#waterConsumption</IRI>
-        <Literal xml:lang="es">consumo de agua</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#waterConsumption</IRI>
-        <Literal xml:lang="en">water consumption</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>gsp:Feature</AbbreviatedIRI>
-        <Literal xml:lang="es">Esta clase representa el tipo &quot;feature&quot; de nivel superior. Es equivalente a GFI_Feature, definida en la norma ISO 19156:2011, y es la superclase de todos los tipos de &quot;feature&quot;.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>gsp:Feature</AbbreviatedIRI>
-        <IRI>http://www.opengis.net/spec/geosparql/1.0</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>gsp:Feature</AbbreviatedIRI>
-        <Literal xml:lang="en">Feature</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>gsp:Geometry</AbbreviatedIRI>
-        <Literal xml:lang="es">La clase representa el tipo de geometría de nivel superior. Esta clase es equivalente a la clase UML GM_Object definida en la norma ISO 19107 y es la superclase de todos los tipos de geometría.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>gsp:Geometry</AbbreviatedIRI>
-        <IRI>http://www.opengis.net/spec/geosparql/1.0</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>gsp:Geometry</AbbreviatedIRI>
-        <Literal xml:lang="es">Geometría</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>gsp:Geometry</AbbreviatedIRI>
-        <Literal xml:lang="en">Geometry</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>gsp:hasGeometry</AbbreviatedIRI>
-        <Literal xml:lang="es">Una representación espacial de un &quot;feature&quot; determinado.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>gsp:hasGeometry</AbbreviatedIRI>
-        <IRI>http://www.opengis.net/spec/geosparql/1.0</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>gsp:hasGeometry</AbbreviatedIRI>
-        <Literal xml:lang="en">has geometry</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>gsp:hasGeometry</AbbreviatedIRI>
-        <Literal xml:lang="es">tiene geometría</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://www.opengis.net/ont/sf#Point</IRI>
-        <IRI>http://www.opengis.net/ont/sf#</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://www.w3.org/2004/02/skos/core#Concept</IRI>
-        <IRI>http://www.w3.org/2004/02/skos/core#</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://www.w3.org/2004/02/skos/core#ConceptScheme</IRI>
-        <IRI>http://www.w3.org/2004/02/skos/core#</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://www.w3.org/2004/02/skos/core#inScheme</IRI>
-        <IRI>http://www.w3.org/2004/02/skos/core#</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:Instant</AbbreviatedIRI>
-        <Literal xml:lang="en">A temporal entity with zero extent or duration</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:Instant</AbbreviatedIRI>
-        <Literal xml:lang="es">Una entidad temporal con una extensión o duración cero.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:Instant</AbbreviatedIRI>
-        <Literal xml:lang="en">Time instant</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:Instant</AbbreviatedIRI>
-        <Literal xml:lang="es">instante de tiempo.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:Instant</AbbreviatedIRI>
-        <Literal xml:lang="en">A temporal entity with zero extent or duration</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:Instant</AbbreviatedIRI>
-        <Literal xml:lang="es">Una entidad temporal con una extensión o duración cero.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:Interval</AbbreviatedIRI>
-        <Literal xml:lang="en">A temporal entity with an extent or duration</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:Interval</AbbreviatedIRI>
-        <Literal xml:lang="es">Una entidad temporal con una extensión o duración.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:Interval</AbbreviatedIRI>
-        <Literal xml:lang="en">Time interval</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:Interval</AbbreviatedIRI>
-        <Literal xml:lang="es">intervalo de tiempo</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:Interval</AbbreviatedIRI>
-        <Literal xml:lang="en">A temporal entity with an extent or duration</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:Interval</AbbreviatedIRI>
-        <Literal xml:lang="es">Una entidad temporal con una extensión o duración.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:TemporalEntity</AbbreviatedIRI>
-        <Literal xml:lang="en">A temporal interval or instant.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:TemporalEntity</AbbreviatedIRI>
-        <Literal xml:lang="es">Un intervalo temporal o un instante.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:TemporalEntity</AbbreviatedIRI>
-        <Literal xml:lang="en">Temporal entity</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:TemporalEntity</AbbreviatedIRI>
-        <Literal xml:lang="es">entidad temporal</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:TemporalEntity</AbbreviatedIRI>
-        <Literal xml:lang="en">A temporal interval or instant.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:TemporalEntity</AbbreviatedIRI>
-        <Literal xml:lang="es">Un intervalo temporal o un instante.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:hasBeginning</AbbreviatedIRI>
-        <Literal xml:lang="en">Beginning of a temporal entity</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:hasBeginning</AbbreviatedIRI>
-        <Literal xml:lang="es">Comienzo de una entidad temporal.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:hasBeginning</AbbreviatedIRI>
-        <Literal xml:lang="en">has beginning</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:hasBeginning</AbbreviatedIRI>
-        <Literal xml:lang="es">tiene principio</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:hasBeginning</AbbreviatedIRI>
-        <Literal xml:lang="en">Beginning of a temporal entity.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:hasBeginning</AbbreviatedIRI>
-        <Literal xml:lang="es">Comienzo de una entidad temporal.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:hasEnd</AbbreviatedIRI>
-        <Literal xml:lang="en">End of a temporal entity.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:hasEnd</AbbreviatedIRI>
-        <Literal xml:lang="es">Final de una entidad temporal.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:hasEnd</AbbreviatedIRI>
-        <Literal xml:lang="en">has end</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:hasEnd</AbbreviatedIRI>
-        <Literal xml:lang="es">tiene fin</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:hasEnd</AbbreviatedIRI>
-        <Literal xml:lang="en">End of a temporal entity.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:hasEnd</AbbreviatedIRI>
-        <Literal xml:lang="es">Final de una entidad temporal.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:hasTime</AbbreviatedIRI>
-        <Literal xml:lang="es">Proporciona soporte a la asociación de una entidad temporal (instante o intervalo) a cualquier cosa.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:hasTime</AbbreviatedIRI>
-        <Literal xml:lang="en">Supports the association of a temporal entity (instant or interval) to any thing</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:hasTime</AbbreviatedIRI>
-        <Literal xml:lang="en">has time</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:hasTime</AbbreviatedIRI>
-        <Literal xml:lang="es">tiene tiempo</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:hasTime</AbbreviatedIRI>
-        <Literal xml:lang="es">Proporciona soporte a la asociación de una entidad temporal (instante o intervalo) a cualquier cosa.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:hasTime</AbbreviatedIRI>
-        <Literal xml:lang="en">Supports the association of a temporal entity (instant or interval) to any thing</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
-        <AbbreviatedIRI>time:hasTime</AbbreviatedIRI>
-        <Literal xml:lang="es">Característica arriesgada -añadida en la revisión del 2017 que no ha sido todavía utilizada de forma amplia.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
-        <AbbreviatedIRI>time:hasTime</AbbreviatedIRI>
-        <Literal xml:lang="en">Feature at risk - added in 2017 revision, and not yet widely used. </Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:hasXSDDuration</AbbreviatedIRI>
-        <Literal xml:lang="es">Extensión de una entidad temporal, expresada utilizando xsd:duration.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:hasXSDDuration</AbbreviatedIRI>
-        <Literal xml:lang="en">Extent of a temporal entity, expressed using xsd:duration</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:hasXSDDuration</AbbreviatedIRI>
-        <Literal xml:lang="en">has XSD duration</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:hasXSDDuration</AbbreviatedIRI>
-        <Literal xml:lang="es">tiene duración XSD</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:hasXSDDuration</AbbreviatedIRI>
-        <Literal xml:lang="es">Extensión de una entidad temporal, expresada utilizando xsd:duration.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:hasXSDDuration</AbbreviatedIRI>
-        <Literal xml:lang="en">Extent of a temporal entity, expressed using xsd:duration</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
-        <AbbreviatedIRI>time:hasXSDDuration</AbbreviatedIRI>
-        <Literal xml:lang="es">Característica arriesgada - añadida en la revisión de 2017, y todavía no ampliamente utilizada.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
-        <AbbreviatedIRI>time:hasXSDDuration</AbbreviatedIRI>
-        <Literal xml:lang="en">Feature at risk - added in 2017 revision, and not yet widely used. </Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:inXSDDateTimeStamp</AbbreviatedIRI>
-        <Literal xml:lang="es">Posición de un instante, expresado utilizando xsd:dateTimeStamp.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:inXSDDateTimeStamp</AbbreviatedIRI>
-        <Literal xml:lang="en">Position of an instant, expressed using xsd:dateTimeStamp</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:inXSDDateTimeStamp</AbbreviatedIRI>
-        <Literal xml:lang="es">en fecha-sello de tiempo XSD</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:inXSDDateTimeStamp</AbbreviatedIRI>
-        <Literal xml:lang="en">in XSD Date-Time-Stamp</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:inXSDDateTimeStamp</AbbreviatedIRI>
-        <Literal xml:lang="es">Posición de un instante, expresado utilizando xsd:dateTimeStamp.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:inXSDDateTimeStamp</AbbreviatedIRI>
-        <Literal xml:lang="en">Position of an instant, expressed using xsd:dateTimeStamp</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:inXSDgYearMonth</AbbreviatedIRI>
-        <Literal xml:lang="es">Posición de un instante, expresado utilizando xsd:gYearMonth.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>time:inXSDgYearMonth</AbbreviatedIRI>
-        <Literal xml:lang="en">Position of an instant, expressed using xsd:gYearMonth</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>time:inXSDgYearMonth</AbbreviatedIRI>
-        <AbbreviatedIRI>time:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:inXSDgYearMonth</AbbreviatedIRI>
-        <Literal xml:lang="es">en año-mes gregoriano XSD</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>time:inXSDgYearMonth</AbbreviatedIRI>
-        <Literal xml:lang="en">in XSD g-YearMonth</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:inXSDgYearMonth</AbbreviatedIRI>
-        <Literal xml:lang="es">Posición de un instante, expresado utilizando xsd:gYearMonth.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>time:inXSDgYearMonth</AbbreviatedIRI>
-        <Literal xml:lang="en">Position of an instant, expressed using xsd:gYearMonth</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
-        <Literal xml:lang="es">Cosa cuya propiedad se está estimando o calculando en el curso de una Observación para llegar a un Resultado o cuya propiedad está siendo manipulada por un Actuador, o que está siendo muestreada o transformada en un acto de Muestreo.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
-        <Literal xml:lang="es">Entidad de interés</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
-        <Literal xml:lang="en">Feature Of Interest</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
-        <Literal xml:lang="es">Una cualidad observable (propiedad, característica) de una entidad de interés.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
-        <Literal>Observable Property</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
-        <Literal xml:lang="es">Propiedad observable</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-        <Literal xml:lang="es">Acto de realizar un procedimiento (de observación) para estimar o calcular el valor de una propiedad de una característica de interés. Se vincula a un sensor para describir qué realizó la observación y cómo; se vincula a una propiedad observable para describir de qué propiedad es la estimación del resultado, y a una característica de interés para detallar con qué se asoció esa propiedad.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-        <Literal xml:lang="es">Observación</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-        <Literal>Observation</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
-        <Literal xml:lang="es">Sistema que implementa un procedimiento de observación para determinar el valor de una Propiedad observable.Puede ser un dispositivo, una infraestructura, un agente (incluyendo humanos) o software (simulación). Un sensor responde a un estímulo, por ejemplo, un cambio en el entorno o datos de entrada compuestos por los resultados de observaciones previas.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
-        <Literal xml:lang="en">Sensor</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
-        <Literal xml:lang="es">Sensor</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
-        <Literal xml:lang="es">Una relación entre una Observación y la entidad cuya calidad fue observada, o entre una Actuación y la entidad cuya propiedad fue modificada, o entre un acto de muestreo y la entidad que fue muestreada.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
-        <Literal>has feature of interest</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hasFeatureOfInterest</AbbreviatedIRI>
-        <Literal xml:lang="es">tiene entidad de interés</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Actuation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservationCollection</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sampling</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:rangeIncludes"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:rangeIncludes"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sample</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <Literal xml:lang="en">Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <IRI>http://www.w3.org/ns/sosa/common/</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <Literal xml:lang="en">has result</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>sosa:hasResult</AbbreviatedIRI>
-        <Literal xml:lang="en">Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Actuation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservationCollection</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sampling</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <Literal xml:lang="en">The simple value of an Observation or Actuation or act of Sampling.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <IRI>http://www.w3.org/ns/sosa/common/</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <Literal xml:lang="en">has simple result</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <Literal xml:lang="en">The simple value of an Observation or Actuation or act of Sampling.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
-        <AbbreviatedIRI>sosa:hasSimpleResult</AbbreviatedIRI>
-        <Literal xml:lang="en">For instance, the values 23 or true.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
-        <Literal xml:lang="es">Relación entre una observación y el sensor que realiza la observación.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
-        <Literal xml:lang="en">made by sensor or observer</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:madeBySensor</AbbreviatedIRI>
-        <Literal xml:lang="es">realizado por sensor u observador</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservationCollection</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:rangeIncludes"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:rangeIncludes"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Property</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <Literal xml:lang="en">Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <IRI>http://www.w3.org/ns/sosa/obs/</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <Literal xml:lang="en">observed property</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <Literal xml:lang="en">
+  Such units are called derived units for the system.</dcterms:description>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/3.1.11/schema/shacl/qudt"/>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
+        <rdfs:label>has unit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/unitFor -->
+
+    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/unitFor"/>
+    
+
+
+    <!-- http://schema.org/manufacturer -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/manufacturer">
+        <rdfs:range rdf:resource="https://schema.org/Organization"/>
+        <rdfs:comment xml:lang="es">El fabricante del producto.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The manufacturer of the product.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://schema.org/"/>
+        <rdfs:label xml:lang="es">fabricante</rdfs:label>
+        <rdfs:label xml:lang="en">manufacturer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#appliesTo -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#appliesTo">
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract"/>
+        <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint"/>
+        <rdfs:comment xml:lang="es">Relación entre el contrato de suministro y el punto de suministro de servicio al que se aplica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between the utility contract and the utillity supply point which it applies to.</rdfs:comment>
+        <rdfs:label xml:lang="es">aplicadoEn</rdfs:label>
+        <rdfs:label xml:lang="en">applies to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#contractHolder -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#contractHolder">
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract"/>
+        <rdfs:range rdf:resource="https://schema.org/Organization"/>
+        <rdfs:comment xml:lang="es">Relación entre un contrato de suministro de servicio y la organización que es titular del contrato.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between a utility contract and the organization that holds the contract.</rdfs:comment>
+        <rdfs:label xml:lang="en">contract holder</rdfs:label>
+        <rdfs:label xml:lang="es">titular contrato</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasMeterType -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasMeterType">
+        <rdfs:domain rdf:resource="https://saref.etsi.org/core/Meter"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+                <owl:hasValue rdf:resource="http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:comment xml:lang="es">Relación entre el Medidor y una taxonomía de tipos de medidores. Por ejemplo,  &quot;externo&quot;, &quot;procesado&quot;, &quot;telemedida&quot;.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between the meter and a taxonomy of meter types. For example, &quot;external&quot;, &quot;processed&quot;, &quot;telemetry&quot;.</rdfs:comment>
+        <rdfs:label xml:lang="en">has meter type</rdfs:label>
+        <rdfs:label xml:lang="es">tiene tipo medidor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasRate -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasRate">
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract"/>
+        <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityRate"/>
+        <rdfs:comment xml:lang="es">Relación entre un contrato de suministro de un servicio y la tarifa que se aplica en dicho contrato.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between a utility contracto and the rate that is applied in the contract.</rdfs:comment>
+        <rdfs:label xml:lang="en">has rate</rdfs:label>
+        <rdfs:label xml:lang="es">tiene tarifa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilitySupplyPoint -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilitySupplyPoint">
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement"/>
+        <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint"/>
+        <rdfs:comment xml:lang="es">Relación entre un elemento de la infraestructura y un punto de suministro de servicio.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between an infrastructure element and a utility supply point.</rdfs:comment>
+        <rdfs:label xml:lang="en">has utility supply point</rdfs:label>
+        <rdfs:label xml:lang="es">tiene punto de suministro de servicio</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilityType -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilityType">
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+                <owl:hasValue rdf:resource="http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:comment xml:lang="es">Tipo de suministro asociado a un punto de suministro de un servicio. Puede ser por ejemplo electricidad, aua, gas. Los tipos de suministro son conceptos definidos en una taxonomía (esquema de conceptos SKOS).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Type of utility associated to a utility supply point. It can be for example eectricity, water, gas, etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">has utility type</rdfs:label>
+        <rdfs:label xml:lang="es">tiene tipo  suministro</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment xml:lang="es">Una representación espacial de un &quot;feature&quot; determinado.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">has geometry</rdfs:label>
+        <rdfs:label xml:lang="es">tiene geometría</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasBeginning -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasBeginning">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+        <rdfs:comment xml:lang="en">Beginning of a temporal entity</rdfs:comment>
+        <rdfs:comment xml:lang="es">Comienzo de una entidad temporal.</rdfs:comment>
+        <rdfs:label xml:lang="en">has beginning</rdfs:label>
+        <rdfs:label xml:lang="es">tiene principio</rdfs:label>
+        <skos:definition xml:lang="en">Beginning of a temporal entity.</skos:definition>
+        <skos:definition xml:lang="es">Comienzo de una entidad temporal.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasEnd -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasEnd">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#hasTime"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+        <rdfs:comment xml:lang="en">End of a temporal entity.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Final de una entidad temporal.</rdfs:comment>
+        <rdfs:label xml:lang="en">has end</rdfs:label>
+        <rdfs:label xml:lang="es">tiene fin</rdfs:label>
+        <skos:definition xml:lang="en">End of a temporal entity.</skos:definition>
+        <skos:definition xml:lang="es">Final de una entidad temporal.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasTime">
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment xml:lang="es">Proporciona soporte a la asociación de una entidad temporal (instante o intervalo) a cualquier cosa.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Supports the association of a temporal entity (instant or interval) to any thing</rdfs:comment>
+        <rdfs:label xml:lang="en">has time</rdfs:label>
+        <rdfs:label xml:lang="es">tiene tiempo</rdfs:label>
+        <skos:definition xml:lang="es">Proporciona soporte a la asociación de una entidad temporal (instante o intervalo) a cualquier cosa.</skos:definition>
+        <skos:definition xml:lang="en">Supports the association of a temporal entity (instant or interval) to any thing</skos:definition>
+        <skos:editorialNote xml:lang="es">Característica arriesgada -añadida en la revisión del 2017 que no ha sido todavía utilizada de forma amplia.</skos:editorialNote>
+        <skos:editorialNote xml:lang="en">Feature at risk - added in 2017 revision, and not yet widely used. </skos:editorialNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasFeatureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasFeatureOfInterest">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+        <rdfs:comment xml:lang="es">Una relación entre una Observación y la entidad cuya calidad fue observada, o entre una Actuación y la entidad cuya propiedad fue modificada, o entre un acto de muestreo y la entidad que fue muestreada.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:label>has feature of interest</rdfs:label>
+        <rdfs:label xml:lang="es">tiene entidad de interés</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasResult -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasResult">
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/sosa/isResultOf"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Actuation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/ObservationCollection"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+        <schema:rangeIncludes rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+        <schema:rangeIncludes rdf:resource="http://www.w3.org/ns/sosa/Sample"/>
+        <rdfs:comment xml:lang="en">Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/common/"/>
+        <rdfs:label xml:lang="en">has result</rdfs:label>
+        <skos:definition xml:lang="en">Relation linking an Observation or Actuation or act of Sampling and a Result or Sample.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/isResultOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/isResultOf"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/madeBySensor -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/madeBySensor">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:comment xml:lang="es">Relación entre una observación y el sensor que realiza la observación.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:label xml:lang="en">made by sensor or observer</rdfs:label>
+        <rdfs:label xml:lang="es">realizado por sensor u observador</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/observedProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/observedProperty">
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/sosa/wasObservedBy"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/ObservationCollection"/>
+        <schema:rangeIncludes rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <schema:rangeIncludes rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+        <rdfs:comment xml:lang="en">Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/obs/"/>
+        <rdfs:label xml:lang="en">observed property</rdfs:label>
+        <skos:definition xml:lang="en">
   relation from an Observation or ObservationCollection to the property that was observed
-  </Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <Literal xml:lang="en">Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
-        <AbbreviatedIRI>sosa:observedProperty</AbbreviatedIRI>
-        <Literal xml:lang="en">
+  </skos:definition>
+        <skos:definition xml:lang="en">Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation.</skos:definition>
+        <skos:note xml:lang="en">
   &apos;observed property&apos; covers the concepts referred to in [VIM] as &apos;measurand&apos; (quantitative values) and &apos;examinand&apos; (categorical and nominal values — [VIM4]), as well as complex and structured properties whose values may be represented as lists, vectors, arrays, rasters, geometries, etc. More specific terms are used in other contexts for related concepts, such as &apos;analyte&apos; (chemistry) and &apos;determinand&apos; (water quality).
-  </Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
-        <Literal xml:lang="es">Relación entre un sensor y una propiedad observable que es capaz de detectar.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
-        <Literal xml:lang="es">observa</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:observes</AbbreviatedIRI>
-        <Literal xml:lang="en">observes</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Actuation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservationCollection</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sampling</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <Literal xml:lang="es">El momento en que el resultado de una observación, actuación o muestreo se aplica a la entidad de interés. No necesariamente coincide con el momento del resultado. Puede ser un intervalo, un instante o alguna otra entidad temporal compuesta.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <Literal xml:lang="en">The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <IRI>http://www.w3.org/ns/sosa/common/</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <Literal xml:lang="es">momento del fenómeno</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <Literal xml:lang="en">phenomenon time</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>sosa:phenomenonTime</AbbreviatedIRI>
-        <Literal xml:lang="en">The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Actuation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:ObservationCollection</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="schema:domainIncludes"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:Sampling</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <Literal xml:lang="en">The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <IRI>http://www.w3.org/ns/sosa/common/</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <Literal xml:lang="en">result time</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-        <AbbreviatedIRI>sosa:resultTime</AbbreviatedIRI>
-        <Literal xml:lang="en">The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <AbbreviatedIRI>sosa:wasObservedBy</AbbreviatedIRI>
-        <AbbreviatedIRI>sosa:</AbbreviatedIRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/source"/>
-        <IRI>https://datos.ign.es/def/geo_core#xETRS89</IRI>
-        <Literal xml:lang="es">Catálogo de Objetos Geográficos BTN100.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://datos.ign.es/def/geo_core#xETRS89</IRI>
-        <Literal xml:lang="es">Coordenada X en metros (ETRS89)</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://datos.ign.es/def/geo_core#xETRS89</IRI>
-        <Literal xml:lang="en">X-Coordinate in meters (ETRS89)</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>https://datos.ign.es/def/geo_core#xETRS89</IRI>
-        <IRI>https://datos.ign.es/def/geo_core#</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://datos.ign.es/def/geo_core#xETRS89</IRI>
-        <Literal>xETRS89</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/source"/>
-        <IRI>https://datos.ign.es/def/geo_core#yETRS89</IRI>
-        <Literal xml:lang="es">Catálogo de Objetos Geográficos BTN100.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://datos.ign.es/def/geo_core#yETRS89</IRI>
-        <Literal xml:lang="es">Coordenada Y en metros (ETRS89)</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://datos.ign.es/def/geo_core#yETRS89</IRI>
-        <Literal xml:lang="en">Y-Coordinate in meters (ETRS89)</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>https://datos.ign.es/def/geo_core#yETRS89</IRI>
-        <IRI>https://datos.ign.es/def/geo_core#</IRI>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://datos.ign.es/def/geo_core#yETRS89</IRI>
-        <Literal>yETRS89</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>saref:Meter</AbbreviatedIRI>
-        <Literal xml:lang="en">A device designed to observe and additionally do some computation and/or display one or more properties of one or more features of interest.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>saref:Meter</AbbreviatedIRI>
-        <Literal xml:lang="en">Meter</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#historyNote"/>
-        <AbbreviatedIRI>saref:Meter</AbbreviatedIRI>
-        <Literal xml:lang="en">V3.2.1: Definition of Meter is simplified and grounded on saref:observes. Local restriction on saref:hasFunction is deleted.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#historyNote"/>
-        <AbbreviatedIRI>saref:Meter</AbbreviatedIRI>
-        <Literal xml:lang="en">V4.1.1: Definition of Sensor and Meter are updated to better distinguish one from the other.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://schema.org/Organization</IRI>
-        <Literal xml:lang="en">An organization such as a school, NGO, corporation, club, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>https://schema.org/Organization</IRI>
-        <Literal xml:lang="es">Una organización como una escuela, una ONG, una corporación, un club, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://schema.org/Organization</IRI>
-        <Literal xml:lang="es">Organización</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>https://schema.org/Organization</IRI>
-        <Literal xml:lang="en">Organization</Literal>
-    </AnnotationAssertion>
-</Ontology>
+  </skos:note>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/observes -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/observes">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdfs:comment xml:lang="es">Relación entre un sensor y una propiedad observable que es capaz de detectar.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:label xml:lang="es">observa</rdfs:label>
+        <rdfs:label xml:lang="en">observes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/phenomenonTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/phenomenonTime">
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Actuation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/ObservationCollection"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+        <rdfs:comment xml:lang="es">El momento en que el resultado de una observación, actuación o muestreo se aplica a la entidad de interés. No necesariamente coincide con el momento del resultado. Puede ser un intervalo, un instante o alguna otra entidad temporal compuesta.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/common/"/>
+        <rdfs:label xml:lang="es">momento del fenómeno</rdfs:label>
+        <rdfs:label xml:lang="en">phenomenon time</rdfs:label>
+        <skos:definition xml:lang="en">The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/wasObservedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/wasObservedBy">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/identifier -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/identifier">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una referencia no ambigüa al recurso dentro de un contexto determinado.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="es">identificador</rdfs:label>
+        <rdfs:label xml:lang="en">identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/value -->
+
+    <owl:DatatypeProperty rdf:about="http://qudt.org/schema/qudt/value">
+        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">A property to relate an observable thing with a value of any kind</dcterms:description>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
+        <rdfs:label>value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasXSDDuration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hasXSDDuration">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+        <rdfs:comment xml:lang="es">Extensión de una entidad temporal, expresada utilizando xsd:duration.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Extent of a temporal entity, expressed using xsd:duration</rdfs:comment>
+        <rdfs:label xml:lang="en">has XSD duration</rdfs:label>
+        <rdfs:label xml:lang="es">tiene duración XSD</rdfs:label>
+        <skos:definition xml:lang="es">Extensión de una entidad temporal, expresada utilizando xsd:duration.</skos:definition>
+        <skos:definition xml:lang="en">Extent of a temporal entity, expressed using xsd:duration</skos:definition>
+        <skos:editorialNote xml:lang="es">Característica arriesgada - añadida en la revisión de 2017, y todavía no ampliamente utilizada.</skos:editorialNote>
+        <skos:editorialNote xml:lang="en">Feature at risk - added in 2017 revision, and not yet widely used. </skos:editorialNote>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#inXSDDateTimeStamp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#inXSDDateTimeStamp">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Instant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+        <rdfs:comment xml:lang="es">Posición de un instante, expresado utilizando xsd:dateTimeStamp.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Position of an instant, expressed using xsd:dateTimeStamp</rdfs:comment>
+        <rdfs:label xml:lang="es">en fecha-sello de tiempo XSD</rdfs:label>
+        <rdfs:label xml:lang="en">in XSD Date-Time-Stamp</rdfs:label>
+        <skos:definition xml:lang="es">Posición de un instante, expresado utilizando xsd:dateTimeStamp.</skos:definition>
+        <skos:definition xml:lang="en">Position of an instant, expressed using xsd:dateTimeStamp</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#inXSDgYearMonth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#inXSDgYearMonth">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYearMonth"/>
+        <rdfs:comment xml:lang="es">Posición de un instante, expresado utilizando xsd:gYearMonth.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Position of an instant, expressed using xsd:gYearMonth</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/time#"/>
+        <rdfs:label xml:lang="es">en año-mes gregoriano XSD</rdfs:label>
+        <rdfs:label xml:lang="en">in XSD g-YearMonth</rdfs:label>
+        <skos:definition xml:lang="es">Posición de un instante, expresado utilizando xsd:gYearMonth.</skos:definition>
+        <skos:definition xml:lang="en">Position of an instant, expressed using xsd:gYearMonth</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/hasSimpleResult -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/sosa/hasSimpleResult">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Actuation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/ObservationCollection"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+        <rdfs:comment xml:lang="en">The simple value of an Observation or Actuation or act of Sampling.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/common/"/>
+        <rdfs:label xml:lang="en">has simple result</rdfs:label>
+        <skos:definition xml:lang="en">The simple value of an Observation or Actuation or act of Sampling.</skos:definition>
+        <skos:example xml:lang="en">For instance, the values 23 or true.</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/resultTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/sosa/resultTime">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Actuation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/ObservationCollection"/>
+        <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+        <rdfs:comment xml:lang="en">The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/common/"/>
+        <rdfs:label xml:lang="en">result time</rdfs:label>
+        <skos:definition xml:lang="en">The result time is the instant of time when the Observation, Actuation or Sampling activity was completed.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://datos.ign.es/def/geo_core#xETRS89 -->
+
+    <owl:DatatypeProperty rdf:about="https://datos.ign.es/def/geo_core#xETRS89">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/sf#Point"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <dc:source xml:lang="es">Catálogo de Objetos Geográficos BTN100.</dc:source>
+        <rdfs:comment xml:lang="es">Coordenada X en metros (ETRS89)</rdfs:comment>
+        <rdfs:comment xml:lang="en">X-Coordinate in meters (ETRS89)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://datos.ign.es/def/geo_core#"/>
+        <rdfs:label>xETRS89</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://datos.ign.es/def/geo_core#yETRS89 -->
+
+    <owl:DatatypeProperty rdf:about="https://datos.ign.es/def/geo_core#yETRS89">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/sf#Point"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <dc:source xml:lang="es">Catálogo de Objetos Geográficos BTN100.</dc:source>
+        <rdfs:comment xml:lang="es">Coordenada Y en metros (ETRS89)</rdfs:comment>
+        <rdfs:comment xml:lang="en">Y-Coordinate in meters (ETRS89)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://datos.ign.es/def/geo_core#"/>
+        <rdfs:label>yETRS89</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qudt.org/schema/qudt/Concept -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/Concept"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/Quantifiable -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/Quantifiable"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/QuantityValue -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/QuantityValue">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/Concept"/>
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/Quantifiable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://qudt.org/schema/qudt/hasUnit"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A Quantity Value  expresses the magnitude and kind of a quantity and is given by the product of a numerical value n and a unit of measure U. The number multiplying the unit is referred to as the numerical value of the quantity expressed in that unit. Refer to &quot;http://physics.nist.gov/Pubs/SP811/sec07.html&quot;, NIST SP 811 section 7,  for more on quantity values.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
+        <rdfs:label>Quantity value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/Unit -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/Unit">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/Concept"/>
+        <rdfs:comment xml:lang="en">A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities of the same kind (more generally of equivalent dimension). 
+  For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). 
+  Any measurement of the length can be expressed as a number multiplied by the unit meter. 
+  More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  Q = nU.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
+        <rdfs:label xml:lang="en">Unit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta -->
+
+    <owl:Class rdf:about="http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta">
+        <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility"/>
+        <rdfs:comment xml:lang="es">Lugar donde se puede tanto dejar como recoger las bicicletas. Está compuesto de anclajes</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica"/>
+        <rdfs:label xml:lang="es">Estación de bicicletas</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo -->
+
+    <owl:Class rdf:about="http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="en">Section/s of a Track defined by a starting and an ending Point.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Tramo definido por un punto de inicio y fin que puede pertenecer a una o más vías</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vocab.ciudadesabiertas.es/def/transporte/trafico"/>
+        <rdfs:label xml:lang="en">Section of Track</rdfs:label>
+        <rdfs:label xml:lang="es">Tramo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="es">Comunidad Autónoma o Ciudad Autónoma</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio"/>
+        <rdfs:label xml:lang="es">Autonomía</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="es">Un barrio es cada una de las partes en que se dividen los pueblos grandes o sus distritos [fuente: Diccionario de la Real Academia (DRAE) 2011]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio"/>
+        <rdfs:label xml:lang="es">Barrio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad">
+        <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio"/>
+        <rdfs:comment xml:lang="es">Una ciudad es un área urbana en la que predominan fundamentalmente la industria y los servicios [fuente: Wikipedia]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio"/>
+        <rdfs:label>Ciudad</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="es">Un distrito es cada una de las demarcaciones en que se subdivide un territorio o una población para distribuir y ordenar el ejercicio de los derechos civiles y políticos, o de las funciones públicas, o de los servicios administrativos [fuente: Diccionario de la Real Academia (DRAE) 2011]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio"/>
+        <rdfs:label xml:lang="es">Distrito</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="es">Un Municipio es el ente local definido en el artículo 140 de la Constitución española y la entidad básica de la organización territorial del Estado según el artículo 1 de la Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local. Tiene personalidad jurídica y plena capacidad para el cumplimiento de sus fines. La delimitación territorial de Municipio está recogida del REgistro Central de Cartografía del IGN.
+Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por el Registro de Entidades Locales del Ministerio de Política Territorial, en http://www.ine.es/nomen2/index.do</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio"/>
+        <rdfs:label xml:lang="es">Municipio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="es">Entidad local con personalidad jurídica propia, determinada por la agrupación de Municipios y división territorial para el cumplimiento de las actividades del Estado. La delimitación territorial de Provincia está recogida en el Registro Central de Cartografía del IGN [fuente: Modelo de Direcciones de la Administración General del Estado v.2]
+Su identificador, que se especifica con la propiedad dct:identifier, es el proporcionado por el INE en http://www.ine.es/daco/daco42/codmun/codmun09/09codmun.xls
+Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por el Registro de Entidades Locales del Ministerio de Política Territorial, en http://www.ine.es/nomen2/index.do</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio"/>
+        <rdfs:label>Provincia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking">
+        <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility"/>
+        <rdfs:comment xml:lang="es">Aparcamiento para diferentes tipos de vehículo que incluye instalaciones o superficies de aparcamiento fuera de la vía pública o zonas de aparcamiento en la vía pública para residentes, no residentes o libres.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Parking for different types of vehicles, including off-street parking facilities or on-street parking zones for residents, non-residents, or free parking.</rdfs:comment>
+        <rdfs:label xml:lang="es">Aparcamiento</rdfs:label>
+        <rdfs:label xml:lang="en">Parking</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility">
+        <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement"/>
+        <rdfs:comment xml:lang="es">Hace referencia a edificios de servicios (públicos o privados), zonas de ocio, zonas comerciales o cualquier otro elemento  que afecte directamente a la movilidad, actuando como un foco de atracción de personas o vehículos.</rdfs:comment>
+        <rdfs:comment xml:lang="en">It refers to service buildings (public or private), leisure areas, commercial areas or any other element that directly affects mobility, acting as a focus of attraction for persons or vehicles.</rdfs:comment>
+        <rdfs:label xml:lang="es">Equipamiento</rdfs:label>
+        <rdfs:label xml:lang="en">Facility</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="es">Representa el conjunto de todos los elementos de la infraestructura que generan movilidad y elementos urbanos tales como semáforos, señales viales, pilonas, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents the set of all infrastructure elements that generate mobility and urban elements such as traffic lights, road signs, bollards, etc.</rdfs:comment>
+        <rdfs:label xml:lang="es">Elemento de la infraestructura</rdfs:label>
+        <rdfs:label xml:lang="en">Infrastructure element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#UrbanElement -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#UrbanElement">
+        <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement"/>
+        <rdfs:comment xml:lang="es">Comprende el inventario de elementos urbanos tales como señales viales, semáforos, pilonas, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="en">It includes the inventory of urban elements such as road signs, traffic lights, bollards, etc.</rdfs:comment>
+        <rdfs:label xml:lang="es">Elemento urbano</rdfs:label>
+        <rdfs:label xml:lang="en">Urban element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityConsumption -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityConsumption">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:comment xml:lang="en">Amount of utility consumed over a specific period.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Cantidad de suministro consumido durante un período específico.</rdfs:comment>
+        <rdfs:label xml:lang="es">Consumo suministro</rdfs:label>
+        <rdfs:label xml:lang="en">Utility consumption</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract">
+        <rdfs:comment xml:lang="es">Acuerdo entre un proveedor de suministros y un consumidor que define los términos, tarifas, calidad del suministro y responsabilidades para la prestación de suministros esenciales como electricidad, agua, gas, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Agreement between a utility provider and a consumer that defines the terms, rates, service quality, and responsibilities for providing essential utilities like electricity, water, gas, etc.</rdfs:comment>
+        <rdfs:label xml:lang="es">Contrato suministro</rdfs:label>
+        <rdfs:label xml:lang="en">Utility contract</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityMeter -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityMeter">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Meter"/>
+        <rdfs:comment xml:lang="en">Device that measures the consumption of a utility, for example electricity, gas, water, or heating.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Dispositivo que mide el consumo de un suministro, por ejemplo, electricidad, gas, agua o calefacción.</rdfs:comment>
+        <rdfs:label xml:lang="es">Medidor suministro</rdfs:label>
+        <rdfs:label xml:lang="en">Utility meter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityRate -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityRate">
+        <rdfs:label xml:lang="en">A utility rate is the specific price structure or tariff charged by a service provider for a unit of consumption of a utility, such as kilowatt-hours of electricity or cubic meters of water.</rdfs:label>
+        <rdfs:label xml:lang="es">La tarifa de un suministro es la estructura de precios o tarifa específica que cobra un proveedor de suministros por una unidad de consumo de un suministro, como kilovatios-hora de electricidad o metros cúbicos de agua.</rdfs:label>
+        <rdfs:label xml:lang="es">Tarifa suministro</rdfs:label>
+        <rdfs:label xml:lang="en">Utility rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:comment xml:lang="en">Point of the infrastructure element where a utility is supplied. Generally associated with a utility meter (sensor).</rdfs:comment>
+        <rdfs:comment xml:lang="es">Punto en donde se realiza el suministro de un servicio para un elemento de la infraestructura municipal. Asociado en general a un medidor (sensor).</rdfs:comment>
+        <rdfs:label xml:lang="es">Punto de suministro de servicio</rdfs:label>
+        <rdfs:label xml:lang="en">Utility supply point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Feature -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature">
+        <rdfs:comment xml:lang="es">Esta clase representa el tipo &quot;feature&quot; de nivel superior. Es equivalente a GFI_Feature, definida en la norma ISO 19156:2011, y es la superclase de todos los tipos de &quot;feature&quot;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">Feature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry">
+        <rdfs:comment xml:lang="es">La clase representa el tipo de geometría de nivel superior. Esta clase es equivalente a la clase UML GM_Object definida en la norma ISO 19107 y es la superclase de todos los tipos de geometría.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:isDefinedBy xml:lang="es">Geometría</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Geometry</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/sf#Point -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/sf#Point">
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/sf#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Instant">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <rdfs:comment xml:lang="en">A temporal entity with zero extent or duration</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una entidad temporal con una extensión o duración cero.</rdfs:comment>
+        <rdfs:label xml:lang="en">Time instant</rdfs:label>
+        <rdfs:label xml:lang="es">instante de tiempo.</rdfs:label>
+        <skos:definition xml:lang="en">A temporal entity with zero extent or duration</skos:definition>
+        <skos:definition xml:lang="es">Una entidad temporal con una extensión o duración cero.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Interval -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Interval">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment xml:lang="en">A temporal entity with an extent or duration</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una entidad temporal con una extensión o duración.</rdfs:comment>
+        <rdfs:label xml:lang="en">Time interval</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo de tiempo</rdfs:label>
+        <skos:definition xml:lang="en">A temporal entity with an extent or duration</skos:definition>
+        <skos:definition xml:lang="es">Una entidad temporal con una extensión o duración.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#ProperInterval -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#ProperInterval"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalEntity -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#Instant"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#Interval"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">A temporal interval or instant.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un intervalo temporal o un instante.</rdfs:comment>
+        <rdfs:label xml:lang="en">Temporal entity</rdfs:label>
+        <rdfs:label xml:lang="es">entidad temporal</rdfs:label>
+        <skos:definition xml:lang="en">A temporal interval or instant.</skos:definition>
+        <skos:definition xml:lang="es">Un intervalo temporal o un instante.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/FeatureOfInterest -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/FeatureOfInterest">
+        <rdfs:comment xml:lang="es">Cosa cuya propiedad se está estimando o calculando en el curso de una Observación para llegar a un Resultado o cuya propiedad está siendo manipulada por un Actuador, o que está siendo muestreada o transformada en un acto de Muestreo.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:label xml:lang="es">Entidad de interés</rdfs:label>
+        <rdfs:label xml:lang="en">Feature Of Interest</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/ObservableProperty -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/ObservableProperty">
+        <rdfs:comment xml:lang="es">Una cualidad observable (propiedad, característica) de una entidad de interés.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:label>Observable Property</rdfs:label>
+        <rdfs:label xml:lang="es">Propiedad observable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Observation -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Observation">
+        <rdfs:comment xml:lang="es">Acto de realizar un procedimiento (de observación) para estimar o calcular el valor de una propiedad de una característica de interés. Se vincula a un sensor para describir qué realizó la observación y cómo; se vincula a una propiedad observable para describir de qué propiedad es la estimación del resultado, y a una característica de interés para detallar con qué se asoció esa propiedad.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:label xml:lang="es">Observación</rdfs:label>
+        <rdfs:label>Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Sensor -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sensor">
+        <rdfs:comment xml:lang="es">Sistema que implementa un procedimiento de observación para determinar el valor de una Propiedad observable.Puede ser un dispositivo, una infraestructura, un agente (incluyendo humanos) o software (simulación). Un sensor responde a un estímulo, por ejemplo, un cambio en el entorno o datos de entrada compuestos por los resultados de observaciones previas.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
+        <rdfs:label xml:lang="en">Sensor</rdfs:label>
+        <rdfs:label xml:lang="es">Sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/core/Device -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/core/Device"/>
+    
+
+
+    <!-- https://saref.etsi.org/core/Meter -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/core/Meter">
+        <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Device"/>
+        <rdfs:comment xml:lang="en">A device designed to observe and additionally do some computation and/or display one or more properties of one or more features of interest.</rdfs:comment>
+        <rdfs:label xml:lang="en">Meter</rdfs:label>
+        <skos:historyNote xml:lang="en">V3.2.1: Definition of Meter is simplified and grounded on saref:observes. Local restriction on saref:hasFunction is deleted.</skos:historyNote>
+        <skos:historyNote xml:lang="en">V4.1.1: Definition of Sensor and Meter are updated to better distinguish one from the other.</skos:historyNote>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.org/Organization -->
+
+    <owl:Class rdf:about="https://schema.org/Organization">
+        <rdfs:comment xml:lang="en">An organization such as a school, NGO, corporation, club, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una organización como una escuela, una ONG, una corporación, un club, etc.</rdfs:comment>
+        <rdfs:label xml:lang="es">Organización</rdfs:label>
+        <rdfs:label xml:lang="en">Organization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#electricityConsumption -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#electricityConsumption">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdfs:label xml:lang="es">consumo de electricidad</rdfs:label>
+        <rdfs:label xml:lang="en">electricity consumption</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#gasConsumption -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#gasConsumption">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdfs:label xml:lang="es">consumo de gas</rdfs:label>
+        <rdfs:label xml:lang="en">gas consumption</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#waterConsumption -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#waterConsumption">
+        <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdfs:label xml:lang="es">consumo de agua</rdfs:label>
+        <rdfs:label xml:lang="en">water consumption</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
 
 
 
