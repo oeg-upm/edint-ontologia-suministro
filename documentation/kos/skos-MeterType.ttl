@@ -1,0 +1,48 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix edintkos: <http://vocab.linkeddata.es/datosabiertos/kos/edint/> .
+@prefix edintmetertype: <http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType/> .
+
+#################################################################
+#
+#    Concept Scheme
+#
+#################################################################
+
+edintkos:MeterType a skos:ConceptScheme ; 
+    dct:issued "2026-03-23"^^xsd:date ;
+    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:comment "This concept scheme belongs to the set of controlled SKOS-based thesauri used by the ontologies from the EDINT data space."@en ;
+    rdfs:comment "Este esquema de conceptos pertenece al conjunto de tesauros SKOS usados por las ontologías del espacio de datos EDINT."@es ;
+    rdfs:label "Tipo de medidor"@en ;
+    rdfs:label "Meter type"@es ;
+    dct:title "Concept scheme grouping types of meters used to measure the consumption of utilities."@en ;
+    dct:title "Esquema de conceptos agrupando tipos de medidores utilizados para medir el consumo de suministros."@es .
+    
+
+#################################################################
+#
+#    Concepts
+#
+#################################################################
+
+edintmetertype:external a skos:Concept;
+  skos:inScheme edintkos:MeterType;
+  skos:prefLabel "Externo"@es ;
+  skos:prefLabel "External"@en .
+
+edintmetertype:processed a skos:Concept;
+  skos:inScheme edintkos:MeterType;
+  skos:prefLabel "Procesado"@es ;
+  skos:prefLabel "Processed"@en .
+
+edintmetertype:telemetry a skos:Concept;
+  skos:inScheme edintkos:MeterType;
+  skos:prefLabel "Telemedida"@es ;
+  skos:prefLabel "Telemetry"@en .
+

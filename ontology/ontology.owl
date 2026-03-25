@@ -49,7 +49,7 @@
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dcterms:description"/>
-        <Literal xml:lang="es">La ontología de suministros describe todos los conceptos relacionados con las servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. Su alcance es el de suministros como electricidad, gas, agua, entre otros.</Literal>
+        <Literal xml:lang="es">La ontología de suministros describe todos los conceptos relacionados con los servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. Su alcance es el de suministros como electricidad, gas, agua, entre otros.</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dcterms:description"/>
@@ -83,6 +83,12 @@
         <Class abbreviatedIRI="qudt:Concept"/>
     </Declaration>
     <Declaration>
+        <Class abbreviatedIRI="qudt:QuantityValue"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="qudt:Unit"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta"/>
     </Declaration>
     <Declaration>
@@ -110,13 +116,13 @@
         <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Facility"/>
+        <Class abbreviatedIRI="edintinf:Facility"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#InfrastructureElement"/>
+        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#UrbanElement"/>
+        <Class abbreviatedIRI="edintinf:UrbanElement"/>
     </Declaration>
     <Declaration>
         <Class IRI="#UtilityConsumption"/>
@@ -200,6 +206,9 @@
         <ObjectProperty IRI="#contractHolder"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasMeterType"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasRate"/>
     </Declaration>
     <Declaration>
@@ -251,6 +260,9 @@
         <DataProperty abbreviatedIRI="dcterms:identifier"/>
     </Declaration>
     <Declaration>
+        <DataProperty abbreviatedIRI="qudt:value"/>
+    </Declaration>
+    <Declaration>
         <DataProperty abbreviatedIRI="time:hasXSDDuration"/>
     </Declaration>
     <Declaration>
@@ -279,6 +291,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#waterConsumption"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="edintkos:MeterType"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="edintkos:UtilityType"/>
@@ -332,6 +347,9 @@
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
     </Declaration>
     <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
+    </Declaration>
+    <Declaration>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#example"/>
     </Declaration>
     <Declaration>
@@ -353,13 +371,13 @@
         <Datatype abbreviatedIRI="xsd:anySimpleType"/>
     </Declaration>
     <Declaration>
-        <Datatype abbreviatedIRI="xsd:gYearMonth"/>
-    </Declaration>
-    <Declaration>
         <Datatype abbreviatedIRI="xsd:duration"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#editorialNote"/>
+        <Datatype abbreviatedIRI="xsd:gYearMonth"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="qudt:Quantifiable"/>
     </Declaration>
     <EquivalentClasses>
         <Class abbreviatedIRI="time:TemporalEntity"/>
@@ -369,8 +387,26 @@
         </ObjectUnionOf>
     </EquivalentClasses>
     <SubClassOf>
+        <Class abbreviatedIRI="qudt:QuantityValue"/>
+        <Class abbreviatedIRI="qudt:Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="qudt:QuantityValue"/>
+        <Class abbreviatedIRI="qudt:Quantifiable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="qudt:QuantityValue"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="qudt:hasUnit"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="qudt:Unit"/>
+        <Class abbreviatedIRI="qudt:Concept"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta"/>
-        <Class IRI="#Facility"/>
+        <Class abbreviatedIRI="edintinf:Facility"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo"/>
@@ -402,19 +438,19 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking"/>
-        <Class IRI="#Facility"/>
+        <Class abbreviatedIRI="edintinf:Facility"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Facility"/>
-        <Class IRI="#InfrastructureElement"/>
+        <Class abbreviatedIRI="edintinf:Facility"/>
+        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#InfrastructureElement"/>
+        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
         <Class abbreviatedIRI="gsp:Feature"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#UrbanElement"/>
-        <Class IRI="#InfrastructureElement"/>
+        <Class abbreviatedIRI="edintinf:UrbanElement"/>
+        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#UtilityConsumption"/>
@@ -466,6 +502,10 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <NamedIndividual abbreviatedIRI="edintkos:MeterType"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <NamedIndividual abbreviatedIRI="edintkos:UtilityType"/>
     </ClassAssertion>
     <SubObjectPropertyOf>
@@ -497,12 +537,16 @@
         <Class IRI="#UtilityContract"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeterType"/>
+        <Class abbreviatedIRI="saref:Meter"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasRate"/>
         <Class IRI="#UtilityContract"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasUtilitySupplyPoint"/>
-        <Class IRI="#InfrastructureElement"/>
+        <Class abbreviatedIRI="edintinf:InfrastructureElement"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasUtilityType"/>
@@ -549,12 +593,26 @@
         <Class IRI="https://schema.org/Organization"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeterType"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <NamedIndividual abbreviatedIRI="edintkos:MeterType"/>
+        </ObjectHasValue>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasRate"/>
         <Class IRI="#UtilityRate"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasUtilitySupplyPoint"/>
         <Class IRI="#UtilitySupplyPoint"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasUtilityType"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            <NamedIndividual abbreviatedIRI="edintkos:UtilityType"/>
+        </ObjectHasValue>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty abbreviatedIRI="gsp:hasGeometry"/>
@@ -666,6 +724,39 @@
         <Literal xml:lang="en">identifier</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>qudt:QuantityValue</AbbreviatedIRI>
+        <Literal xml:lang="en">A Quantity Value  expresses the magnitude and kind of a quantity and is given by the product of a numerical value n and a unit of measure U. The number multiplying the unit is referred to as the numerical value of the quantity expressed in that unit. Refer to &quot;http://physics.nist.gov/Pubs/SP811/sec07.html&quot;, NIST SP 811 section 7,  for more on quantity values.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>qudt:QuantityValue</AbbreviatedIRI>
+        <IRI>http://qudt.org/schema/qudt</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>qudt:QuantityValue</AbbreviatedIRI>
+        <Literal>Quantity value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>qudt:Unit</AbbreviatedIRI>
+        <Literal xml:lang="en">A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities of the same kind (more generally of equivalent dimension). 
+  For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). 
+  Any measurement of the length can be expressed as a number multiplied by the unit meter. 
+  More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  Q = nU.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>qudt:Unit</AbbreviatedIRI>
+        <IRI>http://qudt.org/schema/qudt</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>qudt:Unit</AbbreviatedIRI>
+        <Literal xml:lang="en">Unit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="dcterms:description"/>
         <AbbreviatedIRI>qudt:applicableUnit</AbbreviatedIRI>
         <Literal xml:lang="en">See https://github.com/qudt/qudt-public-repo/wiki/Advanced-User-Guide#4-computing-applicable-units-for-a-quantitykind on how `qudt:applicableUnit` is computed from `qudt:hasQuantityKind` and then materialized</Literal>
@@ -725,6 +816,21 @@ Systems of units may distinguish between base and derived units.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <AbbreviatedIRI>qudt:hasUnit</AbbreviatedIRI>
         <Literal>has unit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
+        <AbbreviatedIRI>qudt:value</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">A property to relate an observable thing with a value of any kind</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>qudt:value</AbbreviatedIRI>
+        <IRI>http://qudt.org/schema/qudt</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>qudt:value</AbbreviatedIRI>
+        <Literal>value</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -906,62 +1012,62 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Facility</IRI>
+        <AbbreviatedIRI>edintinf:Facility</AbbreviatedIRI>
         <Literal xml:lang="es">Hace referencia a edificios de servicios (públicos o privados), zonas de ocio, zonas comerciales o cualquier otro elemento  que afecte directamente a la movilidad, actuando como un foco de atracción de personas o vehículos.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Facility</IRI>
+        <AbbreviatedIRI>edintinf:Facility</AbbreviatedIRI>
         <Literal xml:lang="en">It refers to service buildings (public or private), leisure areas, commercial areas or any other element that directly affects mobility, acting as a focus of attraction for persons or vehicles.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Facility</IRI>
+        <AbbreviatedIRI>edintinf:Facility</AbbreviatedIRI>
         <Literal xml:lang="es">Equipamiento</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Facility</IRI>
+        <AbbreviatedIRI>edintinf:Facility</AbbreviatedIRI>
         <Literal xml:lang="en">Facility</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#InfrastructureElement</IRI>
+        <AbbreviatedIRI>edintinf:InfrastructureElement</AbbreviatedIRI>
         <Literal xml:lang="es">Representa el conjunto de todos los elementos de la infraestructura que generan movilidad y elementos urbanos tales como semáforos, señales viales, pilonas, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#InfrastructureElement</IRI>
+        <AbbreviatedIRI>edintinf:InfrastructureElement</AbbreviatedIRI>
         <Literal xml:lang="en">Represents the set of all infrastructure elements that generate mobility and urban elements such as traffic lights, road signs, bollards, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#InfrastructureElement</IRI>
+        <AbbreviatedIRI>edintinf:InfrastructureElement</AbbreviatedIRI>
         <Literal xml:lang="es">Elemento de la infraestructura</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#InfrastructureElement</IRI>
+        <AbbreviatedIRI>edintinf:InfrastructureElement</AbbreviatedIRI>
         <Literal xml:lang="en">Infrastructure element</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UrbanElement</IRI>
+        <AbbreviatedIRI>edintinf:UrbanElement</AbbreviatedIRI>
         <Literal xml:lang="es">Comprende el inventario de elementos urbanos tales como señales viales, semáforos, pilonas, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#UrbanElement</IRI>
+        <AbbreviatedIRI>edintinf:UrbanElement</AbbreviatedIRI>
         <Literal xml:lang="en">It includes the inventory of urban elements such as road signs, traffic lights, bollards, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UrbanElement</IRI>
+        <AbbreviatedIRI>edintinf:UrbanElement</AbbreviatedIRI>
         <Literal xml:lang="es">Elemento urbano</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#UrbanElement</IRI>
+        <AbbreviatedIRI>edintinf:UrbanElement</AbbreviatedIRI>
         <Literal xml:lang="en">Urban element</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
@@ -1123,6 +1229,26 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#gasConsumption</IRI>
         <Literal xml:lang="en">gas consumption</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasMeterType</IRI>
+        <Literal xml:lang="es">Relación entre el Medidor y una taxonomía de tipos de medidores. Por ejemplo,  &quot;externo&quot;, &quot;procesado&quot;, &quot;telemedida&quot;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasMeterType</IRI>
+        <Literal xml:lang="en">Relationship between the meter and a taxonomy of meter types. For example, &quot;external&quot;, &quot;processed&quot;, &quot;telemetry&quot;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMeterType</IRI>
+        <Literal xml:lang="en">has meter type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMeterType</IRI>
+        <Literal xml:lang="es">tiene tipo medidor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
