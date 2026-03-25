@@ -1,0 +1,17 @@
+# SUM09: ¿Cuál es el tramo de consumo anual contratado para un equipamiento?
+
+PREFIX edintsum: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#>
+PREFIX edintinf: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?infrastructureElement ?contract ?rate ?rateLabel
+WHERE {
+  ?infrastructureElement a edintinf:InfrastructureElement ;
+                         edintsum:hasUtilitySupplyPoint ?supplyPoint .
+
+  ?contract a edintsum:UtilityContract ;
+            edintsum:appliesTo ?supplyPoint ;
+            edintsum:hasRate ?rate .
+
+  OPTIONAL { ?rate rdfs:label ?rateLabel }
+}
