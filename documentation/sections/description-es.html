@@ -20,36 +20,38 @@ El <a href="#UtilityContract">contrato de servicio</a> tiene un <a href="#contra
 @prefix ma: &lt;http://www.w3.org/ns/ma-ont#&gt; .
 @prefix map: &lt;http://mapping.example.com/&gt; .
 @prefix ql: &lt;http://semweb.mmlab.be/ns/ql#&gt; .
+@prefix qudt: &lt;http://qudt.org/schema/qudt/&gt; .
 @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix rml: &lt;http://semweb.mmlab.be/ns/rml#&gt; .
 @prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt; .
 @prefix schema: &lt;https://schema.org/&gt; .
+@prefix sd: &lt;http://www.w3.org/ns/sparql-service-description#&gt; .
 @prefix sosa: &lt;http://www.w3.org/ns/sosa/&gt; .
+@prefix time: &lt;http://www.w3.org/2006/time#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 
-&lt;http://vocab.linkeddata.es/datosabiertos/recurso/ConsumoSuministro/2258.0_2020_3_AMBIBAMMATUTE_General&gt;
+&lt;http://vocab.linkeddata.es/datosabiertos/recurso/ConsumoSuministro/2258.0_2020_03_AMBIBAMMATUTE_General&gt;
   a edintsum:UtilityConsumption;
-  dct:identifier "2258.0_2020_3_AMBIBAMMATUTE_General";
-  rdfs:label "Consumo de 104 kvarh en 3/2020", "Consumo de 13099 kWh en 3/2020", "Lectura del sensor AMBIBAMMATUTE_General correspondiente a 3/2020";
+  dct:identifier "2258.0_2020_03_AMBIBAMMATUTE_General";
+  rdfs:label "Consumo de 13099 kWh en 3/2020", "Lectura del sensor AMBIBAMMATUTE_General correspondiente a 3/2020";
   sosa:hasFeatureOfInterest &lt;http://vocab.linkeddata.es/datosabiertos/recurso/puntoSuministro/ES2002783120652701XX&gt;;
-  sosa:hasSimpleResult "104", "13099";
+  sosa:hasResult &lt;http://vocab.linkeddata.es/datosabiertos/recurso/valorSuministro/2258.0_2020_03_AMBIBAMMATUTE_General&gt;;
   sosa:madeBySensor &lt;http://vocab.linkeddata.es/datosabiertos/recurso/medidorSuministro/AMBIBAMMATUTE_General&gt;;
-  sosa:resultTime "2020, 3";
-  schema:unitText "kWh", "kvarh" .
+  sosa:phenomenonTime &lt;http://vocab.linkeddata.es/datosabiertos/recurso/intervaloMedicion/2258.0_2020_03_AMBIBAMMATUTE_General&gt; .
 
 &lt;http://vocab.linkeddata.es/datosabiertos/recurso/contratoSuministo/2258.0&gt; a edintsum:UtilityContract;
   dct:identifier "Contrato-ES2002783120652701XX";
   edintsum:appliesTo &lt;http://vocab.linkeddata.es/datosabiertos/recurso/puntoSuministro/ES2002783120652701XX&gt;;
   edintsum:contractHolder &lt;http://vocab.linkeddata.es/datosabiertos/recurso/organizacion/AyuntamientoDeMadrid&gt;;
-  edintsum:hasRate &lt;http://vocab.linkeddata.es/datosabiertos/recurso/tarifaSuministro/tarifa_activa_general&gt;,
-    &lt;http://vocab.linkeddata.es/datosabiertos/recurso/tarifaSuministro/tarifa_reactivatarifa31a&gt;;
+  edintsum:hasRate &lt;http://vocab.linkeddata.es/datosabiertos/recurso/tarifaSuministro/tarifa_activa_general&gt;;
   rdfs:label "Contrato de suministro de activeenergy situado en CALLE ISAAC ALBENIZ, 1 28019 MADRID",
     "Contrato de suministro para: Biblioteca Ana María Matute" .
 
 &lt;http://vocab.linkeddata.es/datosabiertos/recurso/direccion-postal/28019&gt; a esdir:DireccionPostal;
   rdfs:label "CALLE ISAAC ALBENIZ, 1 28019 MADRID" .
 
-&lt;http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/locations/438873%2C92-4472154%2C36&gt;
+&lt;http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/locations/438873.92-4472154.36&gt;
   a geosparql:Geometry;
   geosparql:asWKT "POINT (-3.7202936410904 40.3977521494866)"^^geosparql:wktLiteral .
 
@@ -58,9 +60,25 @@ El <a href="#UtilityContract">contrato de servicio</a> tiene un <a href="#contra
   dct:identifier "2258.0";
   edintinf:belongsTo &lt;http://vocab.linkeddata.es/datosabiertos/recurso/sector-publico/territorio/barrio/113&gt;;
   edintsum:hasUtilitySupplyPoint &lt;http://vocab.linkeddata.es/datosabiertos/recurso/puntoSuministro/ES2002783120652701XX&gt;;
-  geosparql:hasGeometry &lt;http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/locations/438873%2C92-4472154%2C36&gt;;
+  geosparql:hasGeometry &lt;http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/locations/438873.92-4472154.36&gt;;
   rdfs:label "Biblioteca Ana María Matute";
   schema:address &lt;http://vocab.linkeddata.es/datosabiertos/recurso/direccion-postal/28019&gt; .
+
+&lt;http://vocab.linkeddata.es/datosabiertos/recurso/instante/2258.0_2020_03_AMBIBAMMATUTE_General/2020-03-01T00%3A00%3A00Z&gt;
+  a time:Instant;
+  rdfs:label "Instante de tiempo: 2020-03-01T00:00:00Z";
+  time:inXSDDateTimeStamp "2020-03-01T00:00:00Z"^^xsd:dateTimeStamp .
+
+&lt;http://vocab.linkeddata.es/datosabiertos/recurso/instante/2258.0_2020_03_AMBIBAMMATUTE_General/2020-03-31T23%3A59%3A59Z&gt;
+  a time:Instant;
+  rdfs:label "Instante de tiempo: 2020-03-31T23:59:59Z";
+  time:inXSDDateTimeStamp "2020-03-31T23:59:59Z"^^xsd:dateTimeStamp .
+
+&lt;http://vocab.linkeddata.es/datosabiertos/recurso/intervaloMedicion/2258.0_2020_03_AMBIBAMMATUTE_General&gt;
+  a time:Interval;
+  rdfs:label "Período de medición correspondiente a 3/2020";
+  time:hasBeginning &lt;http://vocab.linkeddata.es/datosabiertos/recurso/instante/2258.0_2020_03_AMBIBAMMATUTE_General/2020-03-01T00%3A00%3A00Z&gt;;
+  time:hasEnd &lt;http://vocab.linkeddata.es/datosabiertos/recurso/instante/2258.0_2020_03_AMBIBAMMATUTE_General/2020-03-31T23%3A59%3A59Z&gt; .
 
 &lt;http://vocab.linkeddata.es/datosabiertos/recurso/medidorSuministro/AMBIBAMMATUTE_General&gt;
   a edintsum:UtilityMeter;
@@ -83,8 +101,7 @@ El <a href="#UtilityContract">contrato de servicio</a> tiene un <a href="#contra
   a edintsum:UtilitySupplyPoint;
   dct:identifier "ES2002783120652701XX";
   edintsum:hasUtilityType edintutiltype:activeenergy;
-  rdfs:label "Punto de Suministro ES2002783120652701XX, Descripción/Grupo: Activa Interruptor Gral",
-    "Punto de Suministro ES2002783120652701XX, Descripción/Grupo: Reactiva tarifa 3.1A" .
+  rdfs:label "Punto de Suministro ES2002783120652701XX, Descripción/Grupo: Activa Interruptor Gral" .
 
 &lt;http://vocab.linkeddata.es/datosabiertos/recurso/sector-publico/territorio/barrio/113&gt;
   a ester:Barrio;
@@ -97,11 +114,14 @@ El <a href="#UtilityContract">contrato de servicio</a> tiene un <a href="#contra
   rdfs:label "Tarifa aplicada para el suministro de activeenergy. Referencia del grupo: Activa Interruptor Gral",
     "Tarifa de tipo: tarifa_activa_general" .
 
-&lt;http://vocab.linkeddata.es/datosabiertos/recurso/tarifaSuministro/tarifa_reactivatarifa31a&gt;
-  a edintsum:UtilityRate;
-  dct:identifier "tarifa_reactivatarifa31a";
-  rdfs:label "Tarifa aplicada para el suministro de activeenergy. Referencia del grupo: Reactiva tarifa 3.1A",
-    "Tarifa de tipo: tarifa_reactivatarifa31a" .
+&lt;http://vocab.linkeddata.es/datosabiertos/recurso/unidad/kWh&gt; a qudt:Unit;
+  rdfs:label "kWh" .
+
+&lt;http://vocab.linkeddata.es/datosabiertos/recurso/valorSuministro/2258.0_2020_03_AMBIBAMMATUTE_General&gt;
+  a qudt:QuantityValue;
+  qudt:hasUnit &lt;http://vocab.linkeddata.es/datosabiertos/recurso/unidad/kWh&gt;;
+  qudt:value "13099"^^xsd:float;
+  rdfs:label "Cantidad consumida: 13099 kWh" .
 </textarea></pre>
 <script>
     var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
