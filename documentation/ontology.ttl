@@ -1,0 +1,855 @@
+@prefix : <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#> .
+
+<http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro> rdf:type owl:Ontology ;
+                                                                                      owl:versionIRI <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro/0.1.0> ;
+                                                                                      <http://purl.org/dc/terms/created> "2026-03-23" ;
+                                                                                      <http://purl.org/dc/terms/creator> "Daniel Doña" ,
+                                                                                                                         "Edna Ruckhaus" ,
+                                                                                                                         "Lucía Sánchez" ,
+                                                                                                                         "Oscar Corcho" ,
+                                                                                                                         "Socorro Bernardos" ;
+                                                                                      <http://purl.org/dc/terms/description> "La ontología de suministros describe todos los conceptos relacionados con los servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. Su alcance es el de suministros como electricidad, gas, agua, entre otros."@es ,
+                                                                                                                             "The Utilities ontology describes all concepts related to the utilities provided to a municipality's infrastructure elements and the measurement of their consumption. Its scope covers utilities such as electricity, gas, water, and others."@en ;
+                                                                                      <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                                                                      <http://purl.org/dc/terms/title> "Ontología de Suministros"@es ,
+                                                                                                                       "The Utilities Ontology"@en ;
+                                                                                      <http://purl.org/vocab/vann/preferredNamespacePrefix> "edintsum" ;
+                                                                                      <http://purl.org/vocab/vann/preferredNamespaceUri> : ;
+                                                                                      owl:versionInfo "0.1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/source
+<http://purl.org/dc/elements/1.1/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://qudt.org/schema/qudt/informativeReference
+<http://qudt.org/schema/qudt/informativeReference> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/domainIncludes
+<http://schema.org/domainIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/rangeIncludes
+<http://schema.org/rangeIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#versionIRI
+owl:versionIRI rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+<http://www.w3.org/2004/02/skos/core#editorialNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#historyNote
+<http://www.w3.org/2004/02/skos/core#historyNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/mod#createdWith
+<https://w3id.org/mod#createdWith> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://qudt.org/schema/qudt/LatexString
+<http://qudt.org/schema/qudt/LatexString> rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML
+rdf:HTML rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#anySimpleType
+xsd:anySimpleType rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#duration
+xsd:duration rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#gYearMonth
+xsd:gYearMonth rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://qudt.org/schema/qudt/applicableUnit
+<http://qudt.org/schema/qudt/applicableUnit> rdf:type owl:ObjectProperty ;
+                                             <http://purl.org/dc/terms/description> "See https://github.com/qudt/qudt-public-repo/wiki/Advanced-User-Guide#4-computing-applicable-units-for-a-quantitykind on how `qudt:applicableUnit` is computed from `qudt:hasQuantityKind` and then materialized"@en ;
+                                             rdfs:isDefinedBy <http://qudt.org/3.1.11/schema/shacl/qudt> ,
+                                                              <http://qudt.org/schema/qudt> ;
+                                             rdfs:label "applicable unit" .
+
+
+###  http://qudt.org/schema/qudt/hasUnit
+<http://qudt.org/schema/qudt/hasUnit> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <http://qudt.org/schema/qudt/unitFor> ;
+                                      <http://purl.org/dc/terms/description> "This property relates a factor unit its unit"^^rdf:HTML ,
+                                                                             """This property relates a factor unit to its unit or a system of units with a unit of measure that is either 
+a) defined by the system, or 
+b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system. 
+
+Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system."""@en ,
+                                                                             """This property relates a factor unit to its unit or system of units with a unit of measure that is either:
+a) defined by the system,
+b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system,
+ c) a reference to the unit of measure of a quantity (variable or constant) of interest.
+Systems of units may distinguish between base and derived units.
+  Base units are the units which measure the base quantities for the corresponding system of quantities. 
+  The base units are used to define units for all other quantities as products of powers of the base units. 
+  Such units are called derived units for the system.""" ;
+                                      rdfs:isDefinedBy <http://qudt.org/3.1.11/schema/shacl/qudt> ,
+                                                       <http://qudt.org/schema/qudt> ;
+                                      rdfs:label "has unit" .
+
+
+###  http://qudt.org/schema/qudt/unitFor
+<http://qudt.org/schema/qudt/unitFor> rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/manufacturer
+<http://schema.org/manufacturer> rdf:type owl:ObjectProperty ;
+                                 rdfs:range <https://schema.org/Organization> ;
+                                 rdfs:comment "El fabricante del producto."@es ,
+                                              "The manufacturer of the product."@en ;
+                                 rdfs:isDefinedBy <http://schema.org/> ;
+                                 rdfs:label "fabricante"@es ,
+                                            "manufacturer"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#appliesTo
+:appliesTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :UtilityContract ;
+           rdfs:range :UtilitySupplyPoint ;
+           rdfs:comment "Relación entre el contrato de suministro y el punto de suministro de servicio al que se aplica."@es ,
+                        "Relationship between the utility contract and the utillity supply point which it applies to."@en ;
+           rdfs:label "aplicadoEn"@es ,
+                      "applies to"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#contractHolder
+:contractHolder rdf:type owl:ObjectProperty ;
+                rdfs:domain :UtilityContract ;
+                rdfs:range <https://schema.org/Organization> ;
+                rdfs:comment "Relación entre un contrato de suministro de servicio y la organización que es titular del contrato."@es ,
+                             "Relationship between a utility contract and the organization that holds the contract."@en ;
+                rdfs:label "contract holder"@en ,
+                           "titular contrato"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasMeterType
+:hasMeterType rdf:type owl:ObjectProperty ;
+              rdfs:domain <https://saref.etsi.org/core/Meter> ;
+              rdfs:range [ rdf:type owl:Restriction ;
+                           owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ;
+                           owl:hasValue <http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType>
+                         ] ;
+              rdfs:comment "Relación entre el Medidor y una taxonomía de tipos de medidores. Por ejemplo,  \"externo\", \"procesado\", \"telemedida\"."@es ,
+                           "Relationship between the meter and a taxonomy of meter types. For example, \"external\", \"processed\", \"telemetry\"."@en ;
+              rdfs:label "has meter type"@en ,
+                         "tiene tipo medidor"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasRate
+:hasRate rdf:type owl:ObjectProperty ;
+         rdfs:domain :UtilityContract ;
+         rdfs:range :UtilityRate ;
+         rdfs:comment "Relación entre un contrato de suministro de un servicio y la tarifa que se aplica en dicho contrato."@es ,
+                      "Relationship between a utility contracto and the rate that is applied in the contract."@en ;
+         rdfs:label "has rate"@en ,
+                    "tiene tarifa"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilitySupplyPoint
+:hasUtilitySupplyPoint rdf:type owl:ObjectProperty ;
+                       rdfs:domain <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement> ;
+                       rdfs:range :UtilitySupplyPoint ;
+                       rdfs:comment "Relación entre un elemento de la infraestructura y un punto de suministro de servicio."@es ,
+                                    "Relationship between an infrastructure element and a utility supply point."@en ;
+                       rdfs:label "has utility supply point"@en ,
+                                  "tiene punto de suministro de servicio"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilityType
+:hasUtilityType rdf:type owl:ObjectProperty ;
+                rdfs:domain :UtilitySupplyPoint ;
+                rdfs:range [ rdf:type owl:Restriction ;
+                             owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ;
+                             owl:hasValue <http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType>
+                           ] ;
+                rdfs:comment "Tipo de suministro asociado a un punto de suministro de un servicio. Puede ser por ejemplo electricidad, aua, gas. Los tipos de suministro son conceptos definidos en una taxonomía (esquema de conceptos SKOS)."@es ,
+                             "Type of utility associated to a utility supply point. It can be for example eectricity, water, gas, etc."@en ;
+                rdfs:label "has utility type"@en ,
+                           "tiene tipo  suministro"@es .
+
+
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+<http://www.opengis.net/ont/geosparql#hasGeometry> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                   rdfs:range <http://www.opengis.net/ont/geosparql#Geometry> ;
+                                                   rdfs:comment "Una representación espacial de un \"feature\" determinado."@es ;
+                                                   rdfs:isDefinedBy <http://www.opengis.net/spec/geosparql/1.0> ;
+                                                   rdfs:label "has geometry"@en ,
+                                                              "tiene geometría"@es .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> rdf:type owl:ObjectProperty ;
+                                               rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core#> .
+
+
+###  http://www.w3.org/2006/time#hasBeginning
+<http://www.w3.org/2006/time#hasBeginning> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://www.w3.org/2006/time#hasTime> ;
+                                           rdfs:domain <http://www.w3.org/2006/time#TemporalEntity> ;
+                                           rdfs:range <http://www.w3.org/2006/time#Instant> ;
+                                           rdfs:comment "Beginning of a temporal entity"@en ,
+                                                        "Comienzo de una entidad temporal."@es ;
+                                           rdfs:label "has beginning"@en ,
+                                                      "tiene principio"@es ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "Beginning of a temporal entity."@en ,
+                                                                                            "Comienzo de una entidad temporal."@es .
+
+
+###  http://www.w3.org/2006/time#hasEnd
+<http://www.w3.org/2006/time#hasEnd> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf <http://www.w3.org/2006/time#hasTime> ;
+                                     rdfs:domain <http://www.w3.org/2006/time#TemporalEntity> ;
+                                     rdfs:range <http://www.w3.org/2006/time#Instant> ;
+                                     rdfs:comment "End of a temporal entity."@en ,
+                                                  "Final de una entidad temporal."@es ;
+                                     rdfs:label "has end"@en ,
+                                                "tiene fin"@es ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "End of a temporal entity."@en ,
+                                                                                      "Final de una entidad temporal."@es .
+
+
+###  http://www.w3.org/2006/time#hasTime
+<http://www.w3.org/2006/time#hasTime> rdf:type owl:ObjectProperty ;
+                                      rdfs:range <http://www.w3.org/2006/time#TemporalEntity> ;
+                                      rdfs:comment "Proporciona soporte a la asociación de una entidad temporal (instante o intervalo) a cualquier cosa."@es ,
+                                                   "Supports the association of a temporal entity (instant or interval) to any thing"@en ;
+                                      rdfs:label "has time"@en ,
+                                                 "tiene tiempo"@es ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "Proporciona soporte a la asociación de una entidad temporal (instante o intervalo) a cualquier cosa."@es ,
+                                                                                       "Supports the association of a temporal entity (instant or interval) to any thing"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#editorialNote> "Característica arriesgada -añadida en la revisión del 2017 que no ha sido todavía utilizada de forma amplia."@es ,
+                                                                                          "Feature at risk - added in 2017 revision, and not yet widely used. "@en .
+
+
+###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
+<http://www.w3.org/ns/sosa/hasFeatureOfInterest> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://www.w3.org/ns/sosa/Observation> ;
+                                                 rdfs:range <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                                                 rdfs:comment "Una relación entre una Observación y la entidad cuya calidad fue observada, o entre una Actuación y la entidad cuya propiedad fue modificada, o entre un acto de muestreo y la entidad que fue muestreada."@es ;
+                                                 rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                                 rdfs:label "tiene entidad de interés"@es ,
+                                                            "has feature of interest" .
+
+
+###  http://www.w3.org/ns/sosa/hasResult
+<http://www.w3.org/ns/sosa/hasResult> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <http://www.w3.org/ns/sosa/isResultOf> ;
+                                      <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                         <http://www.w3.org/ns/sosa/Observation> ,
+                                                                         <http://www.w3.org/ns/sosa/ObservationCollection> ,
+                                                                         <http://www.w3.org/ns/sosa/Sampling> ;
+                                      <http://schema.org/rangeIncludes> <http://www.w3.org/ns/sosa/Result> ,
+                                                                        <http://www.w3.org/ns/sosa/Sample> ;
+                                      rdfs:comment "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en ;
+                                      rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                       <http://www.w3.org/ns/sosa/common/> ;
+                                      rdfs:label "has result"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en .
+
+
+###  http://www.w3.org/ns/sosa/isResultOf
+<http://www.w3.org/ns/sosa/isResultOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeBySensor
+<http://www.w3.org/ns/sosa/madeBySensor> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.w3.org/ns/sosa/Observation> ;
+                                         rdfs:range <http://www.w3.org/ns/sosa/Sensor> ;
+                                         rdfs:comment "Relación entre una observación y el sensor que realiza la observación."@es ;
+                                         rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                         rdfs:label "made by sensor or observer"@en ,
+                                                    "realizado por sensor u observador"@es .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+<http://www.w3.org/ns/sosa/observedProperty> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <http://www.w3.org/ns/sosa/wasObservedBy> ;
+                                             rdfs:domain <http://www.w3.org/ns/sosa/Observation> ;
+                                             rdfs:range <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                                             <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Observation> ,
+                                                                                <http://www.w3.org/ns/sosa/ObservationCollection> ;
+                                             <http://schema.org/rangeIncludes> <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                                                               <http://www.w3.org/ns/sosa/Property> ;
+                                             rdfs:comment "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en ;
+                                             rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                              <http://www.w3.org/ns/sosa/obs/> ;
+                                             rdfs:label "observed property"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> """
+  relation from an Observation or ObservationCollection to the property that was observed
+  """@en ,
+                                                                                              "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#note> """
+  'observed property' covers the concepts referred to in [VIM] as 'measurand' (quantitative values) and 'examinand' (categorical and nominal values — [VIM4]), as well as complex and structured properties whose values may be represented as lists, vectors, arrays, rasters, geometries, etc. More specific terms are used in other contexts for related concepts, such as 'analyte' (chemistry) and 'determinand' (water quality).
+  """@en .
+
+
+###  http://www.w3.org/ns/sosa/observes
+<http://www.w3.org/ns/sosa/observes> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <http://www.w3.org/ns/sosa/Sensor> ;
+                                     rdfs:range <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                                     rdfs:comment "Relación entre un sensor y una propiedad observable que es capaz de detectar."@es ;
+                                     rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                     rdfs:label "observa"@es ,
+                                                "observes"@en .
+
+
+###  http://www.w3.org/ns/sosa/phenomenonTime
+<http://www.w3.org/ns/sosa/phenomenonTime> rdf:type owl:ObjectProperty ;
+                                           <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                              <http://www.w3.org/ns/sosa/Observation> ,
+                                                                              <http://www.w3.org/ns/sosa/ObservationCollection> ,
+                                                                              <http://www.w3.org/ns/sosa/Sampling> ;
+                                           rdfs:comment "El momento en que el resultado de una observación, actuación o muestreo se aplica a la entidad de interés. No necesariamente coincide con el momento del resultado. Puede ser un intervalo, un instante o alguna otra entidad temporal compuesta."@es ,
+                                                        "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                            <http://www.w3.org/ns/sosa/common/> ;
+                                           rdfs:label "momento del fenómeno"@es ,
+                                                      "phenomenon time"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en .
+
+
+###  http://www.w3.org/ns/sosa/wasObservedBy
+<http://www.w3.org/ns/sosa/wasObservedBy> rdf:type owl:ObjectProperty ;
+                                          rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/terms/identifier
+<http://purl.org/dc/terms/identifier> rdf:type owl:DatatypeProperty ;
+                                      rdfs:range rdfs:Literal ;
+                                      rdfs:comment "An unambiguous reference to the resource within a given context."@en ,
+                                                   "Una referencia no ambigüa al recurso dentro de un contexto determinado."@es ;
+                                      rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+                                      rdfs:label "identificador"@es ,
+                                                 "identifier"@en .
+
+
+###  http://qudt.org/schema/qudt/value
+<http://qudt.org/schema/qudt/value> rdf:type owl:DatatypeProperty ;
+                                    <http://purl.org/dc/terms/description> "A property to relate an observable thing with a value of any kind"^^rdf:HTML ;
+                                    rdfs:isDefinedBy <http://qudt.org/schema/qudt> ;
+                                    rdfs:label "value" .
+
+
+###  http://www.w3.org/2006/time#hasXSDDuration
+<http://www.w3.org/2006/time#hasXSDDuration> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://www.w3.org/2006/time#TemporalEntity> ;
+                                             rdfs:range xsd:duration ;
+                                             rdfs:comment "Extensión de una entidad temporal, expresada utilizando xsd:duration."@es ,
+                                                          "Extent of a temporal entity, expressed using xsd:duration"@en ;
+                                             rdfs:label "has XSD duration"@en ,
+                                                        "tiene duración XSD"@es ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "Extensión de una entidad temporal, expresada utilizando xsd:duration."@es ,
+                                                                                              "Extent of a temporal entity, expressed using xsd:duration"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#editorialNote> "Característica arriesgada - añadida en la revisión de 2017, y todavía no ampliamente utilizada."@es ,
+                                                                                                 "Feature at risk - added in 2017 revision, and not yet widely used. "@en .
+
+
+###  http://www.w3.org/2006/time#inXSDDateTimeStamp
+<http://www.w3.org/2006/time#inXSDDateTimeStamp> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain <http://www.w3.org/2006/time#Instant> ;
+                                                 rdfs:range xsd:dateTimeStamp ;
+                                                 rdfs:comment "Posición de un instante, expresado utilizando xsd:dateTimeStamp."@es ,
+                                                              "Position of an instant, expressed using xsd:dateTimeStamp"@en ;
+                                                 rdfs:label "en fecha-sello de tiempo XSD"@es ,
+                                                            "in XSD Date-Time-Stamp"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Posición de un instante, expresado utilizando xsd:dateTimeStamp."@es ,
+                                                                                                  "Position of an instant, expressed using xsd:dateTimeStamp"@en .
+
+
+###  http://www.w3.org/2006/time#inXSDgYearMonth
+<http://www.w3.org/2006/time#inXSDgYearMonth> rdf:type owl:DatatypeProperty ;
+                                              rdfs:range xsd:gYearMonth ;
+                                              rdfs:comment "Posición de un instante, expresado utilizando xsd:gYearMonth."@es ,
+                                                           "Position of an instant, expressed using xsd:gYearMonth"@en ;
+                                              rdfs:isDefinedBy <http://www.w3.org/2006/time#> ;
+                                              rdfs:label "en año-mes gregoriano XSD"@es ,
+                                                         "in XSD g-YearMonth"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#definition> "Posición de un instante, expresado utilizando xsd:gYearMonth."@es ,
+                                                                                               "Position of an instant, expressed using xsd:gYearMonth"@en .
+
+
+###  http://www.w3.org/ns/sosa/hasSimpleResult
+<http://www.w3.org/ns/sosa/hasSimpleResult> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.w3.org/ns/sosa/Observation> ;
+                                            <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                               <http://www.w3.org/ns/sosa/Observation> ,
+                                                                               <http://www.w3.org/ns/sosa/ObservationCollection> ,
+                                                                               <http://www.w3.org/ns/sosa/Sampling> ;
+                                            rdfs:comment "The simple value of an Observation or Actuation or act of Sampling."@en ;
+                                            rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                             <http://www.w3.org/ns/sosa/common/> ;
+                                            rdfs:label "has simple result"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "The simple value of an Observation or Actuation or act of Sampling."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#example> "For instance, the values 23 or true."@en .
+
+
+###  http://www.w3.org/ns/sosa/resultTime
+<http://www.w3.org/ns/sosa/resultTime> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <http://www.w3.org/ns/sosa/Observation> ;
+                                       rdfs:range xsd:dateTime ;
+                                       <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                          <http://www.w3.org/ns/sosa/Observation> ,
+                                                                          <http://www.w3.org/ns/sosa/ObservationCollection> ,
+                                                                          <http://www.w3.org/ns/sosa/Sampling> ;
+                                       rdfs:comment "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en ;
+                                       rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                        <http://www.w3.org/ns/sosa/common/> ;
+                                       rdfs:label "result time"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#definition> "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en .
+
+
+###  https://datos.ign.es/def/geo_core#xETRS89
+<https://datos.ign.es/def/geo_core#xETRS89> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.opengis.net/ont/sf#Point> ;
+                                            rdfs:range xsd:float ;
+                                            <http://purl.org/dc/elements/1.1/source> "Catálogo de Objetos Geográficos BTN100."@es ;
+                                            rdfs:comment "Coordenada X en metros (ETRS89)"@es ,
+                                                         "X-Coordinate in meters (ETRS89)"@en ;
+                                            rdfs:isDefinedBy <https://datos.ign.es/def/geo_core#> ;
+                                            rdfs:label "xETRS89" .
+
+
+###  https://datos.ign.es/def/geo_core#yETRS89
+<https://datos.ign.es/def/geo_core#yETRS89> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.opengis.net/ont/sf#Point> ;
+                                            rdfs:range xsd:float ;
+                                            <http://purl.org/dc/elements/1.1/source> "Catálogo de Objetos Geográficos BTN100."@es ;
+                                            rdfs:comment "Coordenada Y en metros (ETRS89)"@es ,
+                                                         "Y-Coordinate in meters (ETRS89)"@en ;
+                                            rdfs:isDefinedBy <https://datos.ign.es/def/geo_core#> ;
+                                            rdfs:label "yETRS89" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://qudt.org/schema/qudt/Concept
+<http://qudt.org/schema/qudt/Concept> rdf:type owl:Class .
+
+
+###  http://qudt.org/schema/qudt/Quantifiable
+<http://qudt.org/schema/qudt/Quantifiable> rdf:type owl:Class .
+
+
+###  http://qudt.org/schema/qudt/QuantityValue
+<http://qudt.org/schema/qudt/QuantityValue> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://qudt.org/schema/qudt/Concept> ,
+                                                            <http://qudt.org/schema/qudt/Quantifiable> ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://qudt.org/schema/qudt/hasUnit> ;
+                                                              owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                            ] ;
+                                            rdfs:comment "A Quantity Value  expresses the magnitude and kind of a quantity and is given by the product of a numerical value n and a unit of measure U. The number multiplying the unit is referred to as the numerical value of the quantity expressed in that unit. Refer to \"http://physics.nist.gov/Pubs/SP811/sec07.html\", NIST SP 811 section 7,  for more on quantity values."@en ;
+                                            rdfs:isDefinedBy <http://qudt.org/schema/qudt> ;
+                                            rdfs:label "Quantity value" .
+
+
+###  http://qudt.org/schema/qudt/Unit
+<http://qudt.org/schema/qudt/Unit> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://qudt.org/schema/qudt/Concept> ;
+                                   rdfs:comment """A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities of the same kind (more generally of equivalent dimension). 
+  For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). 
+  Any measurement of the length can be expressed as a number multiplied by the unit meter. 
+  More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  Q = nU."""@en ;
+                                   rdfs:isDefinedBy <http://qudt.org/schema/qudt> ;
+                                   rdfs:label "Unit"@en .
+
+
+###  http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta
+<http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility> ;
+                                                                                      rdfs:comment "Lugar donde se puede tanto dejar como recoger las bicicletas. Está compuesto de anclajes"@es ;
+                                                                                      rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica> ;
+                                                                                      rdfs:label "Estación de bicicletas"@es .
+
+
+###  http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo
+<http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                                rdfs:comment "Section/s of a Track defined by a starting and an ending Point."@en ,
+                                                                             "Tramo definido por un punto de inicio y fin que puede pertenecer a una o más vías"@es ;
+                                                                rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
+                                                                rdfs:label "Section of Track"@en ,
+                                                                           "Tramo"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia
+<http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                                                   rdfs:comment "Comunidad Autónoma o Ciudad Autónoma"@es ;
+                                                                                   rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio> ;
+                                                                                   rdfs:label "Autonomía"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio
+<http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                                                rdfs:comment "Un barrio es cada una de las partes en que se dividen los pueblos grandes o sus distritos [fuente: Diccionario de la Real Academia (DRAE) 2011]"@es ;
+                                                                                rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio> ;
+                                                                                rdfs:label "Barrio"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad
+<http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio> ;
+                                                                                rdfs:comment "Una ciudad es un área urbana en la que predominan fundamentalmente la industria y los servicios [fuente: Wikipedia]"@es ;
+                                                                                rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio> ;
+                                                                                rdfs:label "Ciudad" .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito
+<http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito> rdf:type owl:Class ;
+                                                                                  rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                                                  rdfs:comment "Un distrito es cada una de las demarcaciones en que se subdivide un territorio o una población para distribuir y ordenar el ejercicio de los derechos civiles y políticos, o de las funciones públicas, o de los servicios administrativos [fuente: Diccionario de la Real Academia (DRAE) 2011]"@es ;
+                                                                                  rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio> ;
+                                                                                  rdfs:label "Distrito"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio
+<http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                                                   rdfs:comment """Un Municipio es el ente local definido en el artículo 140 de la Constitución española y la entidad básica de la organización territorial del Estado según el artículo 1 de la Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local. Tiene personalidad jurídica y plena capacidad para el cumplimiento de sus fines. La delimitación territorial de Municipio está recogida del REgistro Central de Cartografía del IGN.
+Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por el Registro de Entidades Locales del Ministerio de Política Territorial, en http://www.ine.es/nomen2/index.do"""@es ;
+                                                                                   rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio> ;
+                                                                                   rdfs:label "Municipio"@es .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia
+<http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                                                   rdfs:comment """Entidad local con personalidad jurídica propia, determinada por la agrupación de Municipios y división territorial para el cumplimiento de las actividades del Estado. La delimitación territorial de Provincia está recogida en el Registro Central de Cartografía del IGN [fuente: Modelo de Direcciones de la Administración General del Estado v.2]
+Su identificador, que se especifica con la propiedad dct:identifier, es el proporcionado por el INE en http://www.ine.es/daco/daco42/codmun/codmun09/09codmun.xls
+Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por el Registro de Entidades Locales del Ministerio de Política Territorial, en http://www.ine.es/nomen2/index.do"""@es ;
+                                                                                   rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio> ;
+                                                                                   rdfs:label "Provincia" .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking
+<http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking> rdf:type owl:Class ;
+                                                                                               rdfs:subClassOf <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility> ;
+                                                                                               rdfs:comment "Aparcamiento para diferentes tipos de vehículo que incluye instalaciones o superficies de aparcamiento fuera de la vía pública o zonas de aparcamiento en la vía pública para residentes, no residentes o libres."@es ,
+                                                                                                            "Parking for different types of vehicles, including off-street parking facilities or on-street parking zones for residents, non-residents, or free parking."@en ;
+                                                                                               rdfs:label "Aparcamiento"@es ,
+                                                                                                          "Parking"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility
+<http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility> rdf:type owl:Class ;
+                                                                                                   rdfs:subClassOf <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement> ;
+                                                                                                   rdfs:comment "Hace referencia a edificios de servicios (públicos o privados), zonas de ocio, zonas comerciales o cualquier otro elemento  que afecte directamente a la movilidad, actuando como un foco de atracción de personas o vehículos."@es ,
+                                                                                                                "It refers to service buildings (public or private), leisure areas, commercial areas or any other element that directly affects mobility, acting as a focus of attraction for persons or vehicles."@en ;
+                                                                                                   rdfs:label "Equipamiento"@es ,
+                                                                                                              "Facility"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement
+<http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement> rdf:type owl:Class ;
+                                                                                                                rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                                                                                rdfs:comment "Representa el conjunto de todos los elementos de la infraestructura que generan movilidad y elementos urbanos tales como semáforos, señales viales, pilonas, etc."@es ,
+                                                                                                                             "Represents the set of all infrastructure elements that generate mobility and urban elements such as traffic lights, road signs, bollards, etc."@en ;
+                                                                                                                rdfs:label "Elemento de la infraestructura"@es ,
+                                                                                                                           "Infrastructure element"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#UrbanElement
+<http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#UrbanElement> rdf:type owl:Class ;
+                                                                                                       rdfs:subClassOf <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement> ;
+                                                                                                       rdfs:comment "Comprende el inventario de elementos urbanos tales como señales viales, semáforos, pilonas, etc."@es ,
+                                                                                                                    "It includes the inventory of urban elements such as road signs, traffic lights, bollards, etc."@en ;
+                                                                                                       rdfs:label "Elemento urbano"@es ,
+                                                                                                                  "Urban element"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityConsumption
+:UtilityConsumption rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> ;
+                    rdfs:comment "Amount of utility consumed over a specific period."@en ,
+                                 "Cantidad de suministro consumido durante un período específico."@es ;
+                    rdfs:label "Consumo suministro"@es ,
+                               "Utility consumption"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract
+:UtilityContract rdf:type owl:Class ;
+                 rdfs:comment "Acuerdo entre un proveedor de suministros y un consumidor que define los términos, tarifas, calidad del suministro y responsabilidades para la prestación de suministros esenciales como electricidad, agua, gas, etc."@es ,
+                              "Agreement between a utility provider and a consumer that defines the terms, rates, service quality, and responsibilities for providing essential utilities like electricity, water, gas, etc."@en ;
+                 rdfs:label "Contrato suministro"@es ,
+                            "Utility contract"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityMeter
+:UtilityMeter rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.w3.org/ns/sosa/Sensor> ,
+                              <https://saref.etsi.org/core/Meter> ;
+              rdfs:comment "Device that measures the consumption of a utility, for example electricity, gas, water, or heating."@en ,
+                           "Dispositivo que mide el consumo de un suministro, por ejemplo, electricidad, gas, agua o calefacción."@es ;
+              rdfs:label "Medidor suministro"@es ,
+                         "Utility meter"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityRate
+:UtilityRate rdf:type owl:Class ;
+             rdfs:label "A utility rate is the specific price structure or tariff charged by a service provider for a unit of consumption of a utility, such as kilowatt-hours of electricity or cubic meters of water."@en ,
+                        "La tarifa de un suministro es la estructura de precios o tarifa específica que cobra un proveedor de suministros por una unidad de consumo de un suministro, como kilovatios-hora de electricidad o metros cúbicos de agua."@es ,
+                        "Tarifa suministro"@es ,
+                        "Utility rate"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint
+:UtilitySupplyPoint rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                    rdfs:comment "Point of the infrastructure element where a utility is supplied. Generally associated with a utility meter (sensor)."@en ,
+                                 "Punto en donde se realiza el suministro de un servicio para un elemento de la infraestructura municipal. Asociado en general a un medidor (sensor)."@es ;
+                    rdfs:label "Punto de suministro de servicio"@es ,
+                               "Utility supply point"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+<http://www.opengis.net/ont/geosparql#Feature> rdf:type owl:Class ;
+                                               rdfs:comment "Esta clase representa el tipo \"feature\" de nivel superior. Es equivalente a GFI_Feature, definida en la norma ISO 19156:2011, y es la superclase de todos los tipos de \"feature\"."@es ;
+                                               rdfs:isDefinedBy <http://www.opengis.net/spec/geosparql/1.0> ;
+                                               rdfs:label "Feature"@en .
+
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+<http://www.opengis.net/ont/geosparql#Geometry> rdf:type owl:Class ;
+                                                rdfs:comment "La clase representa el tipo de geometría de nivel superior. Esta clase es equivalente a la clase UML GM_Object definida en la norma ISO 19107 y es la superclase de todos los tipos de geometría."@es ;
+                                                rdfs:isDefinedBy <http://www.opengis.net/spec/geosparql/1.0> ,
+                                                                 "Geometría"@es ;
+                                                rdfs:label "Geometry"@en .
+
+
+###  http://www.opengis.net/ont/sf#Point
+<http://www.opengis.net/ont/sf#Point> rdf:type owl:Class ;
+                                      rdfs:isDefinedBy <http://www.opengis.net/ont/sf#> .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class ;
+                                              rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core#> .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdf:type owl:Class ;
+                                                    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core#> .
+
+
+###  http://www.w3.org/2006/time#Instant
+<http://www.w3.org/2006/time#Instant> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://www.w3.org/2006/time#TemporalEntity> ;
+                                      owl:disjointWith <http://www.w3.org/2006/time#ProperInterval> ;
+                                      rdfs:comment "A temporal entity with zero extent or duration"@en ,
+                                                   "Una entidad temporal con una extensión o duración cero."@es ;
+                                      rdfs:label "Time instant"@en ,
+                                                 "instante de tiempo."@es ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "A temporal entity with zero extent or duration"@en ,
+                                                                                       "Una entidad temporal con una extensión o duración cero."@es .
+
+
+###  http://www.w3.org/2006/time#Interval
+<http://www.w3.org/2006/time#Interval> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.w3.org/2006/time#TemporalEntity> ;
+                                       rdfs:comment "A temporal entity with an extent or duration"@en ,
+                                                    "Una entidad temporal con una extensión o duración."@es ;
+                                       rdfs:label "Time interval"@en ,
+                                                  "intervalo de tiempo"@es ;
+                                       <http://www.w3.org/2004/02/skos/core#definition> "A temporal entity with an extent or duration"@en ,
+                                                                                        "Una entidad temporal con una extensión o duración."@es .
+
+
+###  http://www.w3.org/2006/time#ProperInterval
+<http://www.w3.org/2006/time#ProperInterval> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+<http://www.w3.org/2006/time#TemporalEntity> rdf:type owl:Class ;
+                                             owl:equivalentClass [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( <http://www.w3.org/2006/time#Instant>
+                                                                                 <http://www.w3.org/2006/time#Interval>
+                                                                               )
+                                                                 ] ;
+                                             rdfs:subClassOf owl:Thing ;
+                                             rdfs:comment "A temporal interval or instant."@en ,
+                                                          "Un intervalo temporal o un instante."@es ;
+                                             rdfs:label "Temporal entity"@en ,
+                                                        "entidad temporal"@es ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "A temporal interval or instant."@en ,
+                                                                                              "Un intervalo temporal o un instante."@es .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+<http://www.w3.org/ns/sosa/FeatureOfInterest> rdf:type owl:Class ;
+                                              rdfs:comment "Cosa cuya propiedad se está estimando o calculando en el curso de una Observación para llegar a un Resultado o cuya propiedad está siendo manipulada por un Actuador, o que está siendo muestreada o transformada en un acto de Muestreo."@es ;
+                                              rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                              rdfs:label "Entidad de interés"@es ,
+                                                         "Feature Of Interest"@en .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+<http://www.w3.org/ns/sosa/ObservableProperty> rdf:type owl:Class ;
+                                               rdfs:comment "Una cualidad observable (propiedad, característica) de una entidad de interés."@es ;
+                                               rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                               rdfs:label "Propiedad observable"@es ,
+                                                          "Observable Property" .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+<http://www.w3.org/ns/sosa/Observation> rdf:type owl:Class ;
+                                        rdfs:comment "Acto de realizar un procedimiento (de observación) para estimar o calcular el valor de una propiedad de una característica de interés. Se vincula a un sensor para describir qué realizó la observación y cómo; se vincula a una propiedad observable para describir de qué propiedad es la estimación del resultado, y a una característica de interés para detallar con qué se asoció esa propiedad."@es ;
+                                        rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                        rdfs:label "Observación"@es ,
+                                                   "Observation" .
+
+
+###  http://www.w3.org/ns/sosa/Sensor
+<http://www.w3.org/ns/sosa/Sensor> rdf:type owl:Class ;
+                                   rdfs:comment "Sistema que implementa un procedimiento de observación para determinar el valor de una Propiedad observable.Puede ser un dispositivo, una infraestructura, un agente (incluyendo humanos) o software (simulación). Un sensor responde a un estímulo, por ejemplo, un cambio en el entorno o datos de entrada compuestos por los resultados de observaciones previas."@es ;
+                                   rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                   rdfs:label "Sensor"@en ,
+                                              "Sensor"@es .
+
+
+###  https://saref.etsi.org/core/Device
+<https://saref.etsi.org/core/Device> rdf:type owl:Class .
+
+
+###  https://saref.etsi.org/core/Meter
+<https://saref.etsi.org/core/Meter> rdf:type owl:Class ;
+                                    rdfs:subClassOf <https://saref.etsi.org/core/Device> ;
+                                    rdfs:comment "A device designed to observe and additionally do some computation and/or display one or more properties of one or more features of interest."@en ;
+                                    rdfs:label "Meter"@en ;
+                                    <http://www.w3.org/2004/02/skos/core#historyNote> "V3.2.1: Definition of Meter is simplified and grounded on saref:observes. Local restriction on saref:hasFunction is deleted."@en ,
+                                                                                      "V4.1.1: Definition of Sensor and Meter are updated to better distinguish one from the other."@en .
+
+
+###  https://schema.org/Organization
+<https://schema.org/Organization> rdf:type owl:Class ;
+                                  rdfs:comment "An organization such as a school, NGO, corporation, club, etc."@en ,
+                                               "Una organización como una escuela, una ONG, una corporación, un club, etc."@es ;
+                                  rdfs:label "Organización"@es ,
+                                             "Organization"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#electricityConsumption
+:electricityConsumption rdf:type owl:NamedIndividual ,
+                                 <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                        rdfs:label "consumo de electricidad"@es ,
+                                   "electricity consumption"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#gasConsumption
+:gasConsumption rdf:type owl:NamedIndividual ,
+                         <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                rdfs:label "consumo de gas"@es ,
+                           "gas consumption"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#waterConsumption
+:waterConsumption rdf:type owl:NamedIndividual ,
+                           <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                  rdfs:label "consumo de agua"@es ,
+                             "water consumption"@en .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType
+<http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType> rdf:type owl:NamedIndividual ,
+                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType
+<http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

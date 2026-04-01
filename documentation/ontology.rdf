@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro"
+<rdf:RDF xmlns="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#"
      xml:base="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:gsp="http://www.opengis.net/ont/geosparql#"
      xmlns:mod="https://w3id.org/mod#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -11,27 +10,22 @@
      xmlns:qudt="http://qudt.org/schema/qudt/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:sosa="http://www.w3.org/ns/sosa/"
-     xmlns:time="http://www.w3.org/2006/time#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:saref="https://saref.etsi.org/core/"
-     xmlns:schema="http://schema.org/"
-     xmlns:dcterms="http://purl.org/dc/terms/"
-     xmlns:edintinf="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#"
-     xmlns:edintkos="http://vocab.linkeddata.es/datosabiertos/kos/edint/">
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/">
     <owl:Ontology rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro">
         <owl:versionIRI rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro/0.1.0"/>
-        <dcterms:created>2026-03-23</dcterms:created>
-        <dcterms:creator>Daniel Doña</dcterms:creator>
-        <dcterms:creator>Edna Ruckhaus</dcterms:creator>
-        <dcterms:creator>Lucía Sánchez</dcterms:creator>
-        <dcterms:creator>Oscar Corcho</dcterms:creator>
-        <dcterms:creator>Socorro Bernardos</dcterms:creator>
-        <dcterms:description xml:lang="es">La ontología de suministros describe todos los conceptos relacionados con los servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. Su alcance es el de suministros como electricidad, gas, agua, entre otros.</dcterms:description>
-        <dcterms:description xml:lang="en">The Utilities ontology describes all concepts related to the utilities provided to a municipality&apos;s infrastructure elements and the measurement of their consumption. Its scope covers utilities such as electricity, gas, water, and others.</dcterms:description>
-        <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:title xml:lang="es">Ontología de Suministros</dcterms:title>
-        <dcterms:title xml:lang="en">The Utilities Ontology</dcterms:title>
+        <terms:created>2026-03-23</terms:created>
+        <terms:creator>Daniel Doña</terms:creator>
+        <terms:creator>Edna Ruckhaus</terms:creator>
+        <terms:creator>Lucía Sánchez</terms:creator>
+        <terms:creator>Oscar Corcho</terms:creator>
+        <terms:creator>Socorro Bernardos</terms:creator>
+        <terms:description xml:lang="es">La ontología de suministros describe todos los conceptos relacionados con los servicios suministrados a los elementos de la infraestructura de un municipio y la medición de su consumo. Su alcance es el de suministros como electricidad, gas, agua, entre otros.</terms:description>
+        <terms:description xml:lang="en">The Utilities ontology describes all concepts related to the utilities provided to a municipality&apos;s infrastructure elements and the measurement of their consumption. Its scope covers utilities such as electricity, gas, water, and others.</terms:description>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <terms:title xml:lang="es">Ontología de Suministros</terms:title>
+        <terms:title xml:lang="en">The Utilities Ontology</terms:title>
         <vann:preferredNamespacePrefix>edintsum</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#"/>
         <owl:versionInfo>0.1.0</owl:versionInfo>
@@ -47,10 +41,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://purl.org/dc/elements/1.1/source -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
     
@@ -58,11 +54,13 @@
 
     <!-- http://purl.org/dc/terms/contributor -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
     
 
 
     <!-- http://purl.org/dc/terms/created -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
     
@@ -70,11 +68,13 @@
 
     <!-- http://purl.org/dc/terms/creator -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
     
 
 
     <!-- http://purl.org/dc/terms/description -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
     
@@ -82,11 +82,13 @@
 
     <!-- http://purl.org/dc/terms/issued -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
     
 
 
     <!-- http://purl.org/dc/terms/license -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
     
@@ -94,11 +96,13 @@
 
     <!-- http://purl.org/dc/terms/title -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
     
 
 
     <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
     
@@ -106,11 +110,13 @@
 
     <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
 
+
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
     
 
 
     <!-- http://qudt.org/schema/qudt/informativeReference -->
+
 
     <owl:AnnotationProperty rdf:about="http://qudt.org/schema/qudt/informativeReference"/>
     
@@ -118,11 +124,13 @@
 
     <!-- http://schema.org/domainIncludes -->
 
+
     <owl:AnnotationProperty rdf:about="http://schema.org/domainIncludes"/>
     
 
 
     <!-- http://schema.org/rangeIncludes -->
+
 
     <owl:AnnotationProperty rdf:about="http://schema.org/rangeIncludes"/>
     
@@ -130,11 +138,13 @@
 
     <!-- http://www.w3.org/2002/07/owl#versionIRI -->
 
+
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionIRI"/>
     
 
 
     <!-- http://www.w3.org/2002/07/owl#versionInfo -->
+
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
     
@@ -142,11 +152,13 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#definition -->
 
+
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
     
 
 
     <!-- http://www.w3.org/2004/02/skos/core#editorialNote -->
+
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#editorialNote"/>
     
@@ -154,11 +166,13 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#example -->
 
+
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
     
 
 
     <!-- http://www.w3.org/2004/02/skos/core#historyNote -->
+
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#historyNote"/>
     
@@ -166,11 +180,13 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#note -->
 
+
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#note"/>
     
 
 
     <!-- https://w3id.org/mod#createdWith -->
+
 
     <owl:AnnotationProperty rdf:about="https://w3id.org/mod#createdWith"/>
     
@@ -184,10 +200,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://qudt.org/schema/qudt/LatexString -->
+
 
     <rdfs:Datatype rdf:about="http://qudt.org/schema/qudt/LatexString"/>
     
@@ -195,11 +213,13 @@
 
     <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML -->
 
+
     <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"/>
     
 
 
     <!-- http://www.w3.org/2001/XMLSchema#anySimpleType -->
+
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#anySimpleType"/>
     
@@ -207,11 +227,13 @@
 
     <!-- http://www.w3.org/2001/XMLSchema#duration -->
 
+
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#duration"/>
     
 
 
     <!-- http://www.w3.org/2001/XMLSchema#gYearMonth -->
+
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYearMonth"/>
     
@@ -225,13 +247,15 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://qudt.org/schema/qudt/applicableUnit -->
 
+
     <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/applicableUnit">
-        <dcterms:description xml:lang="en">See https://github.com/qudt/qudt-public-repo/wiki/Advanced-User-Guide#4-computing-applicable-units-for-a-quantitykind on how `qudt:applicableUnit` is computed from `qudt:hasQuantityKind` and then materialized</dcterms:description>
+        <terms:description xml:lang="en">See https://github.com/qudt/qudt-public-repo/wiki/Advanced-User-Guide#4-computing-applicable-units-for-a-quantitykind on how `qudt:applicableUnit` is computed from `qudt:hasQuantityKind` and then materialized</terms:description>
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/3.1.11/schema/shacl/qudt"/>
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
         <rdfs:label>applicable unit</rdfs:label>
@@ -241,22 +265,23 @@
 
     <!-- http://qudt.org/schema/qudt/hasUnit -->
 
+
     <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/hasUnit">
         <owl:inverseOf rdf:resource="http://qudt.org/schema/qudt/unitFor"/>
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">This property relates a factor unit its unit</dcterms:description>
-        <dcterms:description xml:lang="en">This property relates a factor unit to its unit or a system of units with a unit of measure that is either 
+        <terms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">This property relates a factor unit its unit</terms:description>
+        <terms:description xml:lang="en">This property relates a factor unit to its unit or a system of units with a unit of measure that is either 
 a) defined by the system, or 
 b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system. 
 
-Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system.</dcterms:description>
-        <dcterms:description>This property relates a factor unit to its unit or system of units with a unit of measure that is either:
+Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system.</terms:description>
+        <terms:description>This property relates a factor unit to its unit or system of units with a unit of measure that is either:
 a) defined by the system,
 b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system,
  c) a reference to the unit of measure of a quantity (variable or constant) of interest.
 Systems of units may distinguish between base and derived units.
   Base units are the units which measure the base quantities for the corresponding system of quantities. 
   The base units are used to define units for all other quantities as products of powers of the base units. 
-  Such units are called derived units for the system.</dcterms:description>
+  Such units are called derived units for the system.</terms:description>
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/3.1.11/schema/shacl/qudt"/>
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
         <rdfs:label>has unit</rdfs:label>
@@ -266,11 +291,13 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://qudt.org/schema/qudt/unitFor -->
 
+
     <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/unitFor"/>
     
 
 
     <!-- http://schema.org/manufacturer -->
+
 
     <owl:ObjectProperty rdf:about="http://schema.org/manufacturer">
         <rdfs:range rdf:resource="https://schema.org/Organization"/>
@@ -285,6 +312,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#appliesTo -->
 
+
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#appliesTo">
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract"/>
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint"/>
@@ -298,6 +326,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#contractHolder -->
 
+
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#contractHolder">
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract"/>
         <rdfs:range rdf:resource="https://schema.org/Organization"/>
@@ -310,6 +339,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasMeterType -->
+
 
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasMeterType">
         <rdfs:domain rdf:resource="https://saref.etsi.org/core/Meter"/>
@@ -329,6 +359,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasRate -->
 
+
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasRate">
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract"/>
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityRate"/>
@@ -342,6 +373,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilitySupplyPoint -->
 
+
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilitySupplyPoint">
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement"/>
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint"/>
@@ -354,6 +386,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilityType -->
+
 
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#hasUtilityType">
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint"/>
@@ -373,6 +406,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
 
+
     <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
         <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
         <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
@@ -386,6 +420,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
 
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
     </owl:ObjectProperty>
@@ -393,6 +428,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://www.w3.org/2006/time#hasBeginning -->
+
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasBeginning">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#hasTime"/>
@@ -410,6 +446,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/2006/time#hasEnd -->
 
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasEnd">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#hasTime"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
@@ -425,6 +462,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://www.w3.org/2006/time#hasTime -->
+
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasTime">
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
@@ -442,18 +480,20 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/ns/sosa/hasFeatureOfInterest -->
 
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasFeatureOfInterest">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
         <rdfs:comment xml:lang="es">Una relación entre una Observación y la entidad cuya calidad fue observada, o entre una Actuación y la entidad cuya propiedad fue modificada, o entre un acto de muestreo y la entidad que fue muestreada.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
-        <rdfs:label>has feature of interest</rdfs:label>
         <rdfs:label xml:lang="es">tiene entidad de interés</rdfs:label>
+        <rdfs:label>has feature of interest</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.w3.org/ns/sosa/hasResult -->
+
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasResult">
         <owl:inverseOf rdf:resource="http://www.w3.org/ns/sosa/isResultOf"/>
@@ -474,11 +514,13 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/ns/sosa/isResultOf -->
 
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/isResultOf"/>
     
 
 
     <!-- http://www.w3.org/ns/sosa/madeBySensor -->
+
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/madeBySensor">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
@@ -492,6 +534,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://www.w3.org/ns/sosa/observedProperty -->
+
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/observedProperty">
         <owl:inverseOf rdf:resource="http://www.w3.org/ns/sosa/wasObservedBy"/>
@@ -518,6 +561,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/ns/sosa/observes -->
 
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/observes">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
@@ -530,6 +574,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://www.w3.org/ns/sosa/phenomenonTime -->
+
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/phenomenonTime">
         <schema:domainIncludes rdf:resource="http://www.w3.org/ns/sosa/Actuation"/>
@@ -549,6 +594,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/ns/sosa/wasObservedBy -->
 
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/wasObservedBy">
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
     </owl:ObjectProperty>
@@ -563,10 +609,12 @@ Systems of units may distinguish between base and derived units.
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://purl.org/dc/terms/identifier -->
+
 
     <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/identifier">
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
@@ -581,8 +629,9 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://qudt.org/schema/qudt/value -->
 
+
     <owl:DatatypeProperty rdf:about="http://qudt.org/schema/qudt/value">
-        <dcterms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">A property to relate an observable thing with a value of any kind</dcterms:description>
+        <terms:description rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">A property to relate an observable thing with a value of any kind</terms:description>
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/schema/qudt"/>
         <rdfs:label>value</rdfs:label>
     </owl:DatatypeProperty>
@@ -590,6 +639,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://www.w3.org/2006/time#hasXSDDuration -->
+
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hasXSDDuration">
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
@@ -608,6 +658,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/2006/time#inXSDDateTimeStamp -->
 
+
     <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#inXSDDateTimeStamp">
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#Instant"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
@@ -623,6 +674,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/2006/time#inXSDgYearMonth -->
 
+
     <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#inXSDgYearMonth">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYearMonth"/>
         <rdfs:comment xml:lang="es">Posición de un instante, expresado utilizando xsd:gYearMonth.</rdfs:comment>
@@ -637,6 +689,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://www.w3.org/ns/sosa/hasSimpleResult -->
+
 
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/sosa/hasSimpleResult">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
@@ -656,6 +709,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://www.w3.org/ns/sosa/resultTime -->
 
+
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/sosa/resultTime">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
@@ -674,6 +728,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- https://datos.ign.es/def/geo_core#xETRS89 -->
 
+
     <owl:DatatypeProperty rdf:about="https://datos.ign.es/def/geo_core#xETRS89">
         <rdfs:domain rdf:resource="http://www.opengis.net/ont/sf#Point"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -687,6 +742,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- https://datos.ign.es/def/geo_core#yETRS89 -->
+
 
     <owl:DatatypeProperty rdf:about="https://datos.ign.es/def/geo_core#yETRS89">
         <rdfs:domain rdf:resource="http://www.opengis.net/ont/sf#Point"/>
@@ -708,10 +764,12 @@ Systems of units may distinguish between base and derived units.
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://qudt.org/schema/qudt/Concept -->
+
 
     <owl:Class rdf:about="http://qudt.org/schema/qudt/Concept"/>
     
@@ -719,11 +777,13 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://qudt.org/schema/qudt/Quantifiable -->
 
+
     <owl:Class rdf:about="http://qudt.org/schema/qudt/Quantifiable"/>
     
 
 
     <!-- http://qudt.org/schema/qudt/QuantityValue -->
+
 
     <owl:Class rdf:about="http://qudt.org/schema/qudt/QuantityValue">
         <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/Concept"/>
@@ -743,6 +803,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://qudt.org/schema/qudt/Unit -->
 
+
     <owl:Class rdf:about="http://qudt.org/schema/qudt/Unit">
         <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/Concept"/>
         <rdfs:comment xml:lang="en">A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities of the same kind (more generally of equivalent dimension). 
@@ -757,6 +818,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta -->
 
+
     <owl:Class rdf:about="http://vocab.ciudadesabiertas.es/def/transporte/bicicleta-publica#EstacionBicicleta">
         <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility"/>
         <rdfs:comment xml:lang="es">Lugar donde se puede tanto dejar como recoger las bicicletas. Está compuesto de anclajes</rdfs:comment>
@@ -767,6 +829,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo -->
+
 
     <owl:Class rdf:about="http://vocab.ciudadesabiertas.es/def/transporte/trafico#Tramo">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
@@ -781,6 +844,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia -->
 
+
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Autonomia">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
         <rdfs:comment xml:lang="es">Comunidad Autónoma o Ciudad Autónoma</rdfs:comment>
@@ -791,6 +855,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio -->
+
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Barrio">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
@@ -803,6 +868,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad -->
 
+
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Ciudad">
         <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio"/>
         <rdfs:comment xml:lang="es">Una ciudad es un área urbana en la que predominan fundamentalmente la industria y los servicios [fuente: Wikipedia]</rdfs:comment>
@@ -813,6 +879,7 @@ Systems of units may distinguish between base and derived units.
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito -->
+
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
@@ -825,6 +892,7 @@ Systems of units may distinguish between base and derived units.
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio -->
 
+
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Municipio">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
         <rdfs:comment xml:lang="es">Un Municipio es el ente local definido en el artículo 140 de la Constitución española y la entidad básica de la organización territorial del Estado según el artículo 1 de la Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local. Tiene personalidad jurídica y plena capacidad para el cumplimiento de sus fines. La delimitación territorial de Municipio está recogida del REgistro Central de Cartografía del IGN.
@@ -836,6 +904,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia -->
+
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Provincia">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
@@ -850,6 +919,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking -->
 
+
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking">
         <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility"/>
         <rdfs:comment xml:lang="es">Aparcamiento para diferentes tipos de vehículo que incluye instalaciones o superficies de aparcamiento fuera de la vía pública o zonas de aparcamiento en la vía pública para residentes, no residentes o libres.</rdfs:comment>
@@ -861,6 +931,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility -->
+
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#Facility">
         <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement"/>
@@ -874,6 +945,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement -->
 
+
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
         <rdfs:comment xml:lang="es">Representa el conjunto de todos los elementos de la infraestructura que generan movilidad y elementos urbanos tales como semáforos, señales viales, pilonas, etc.</rdfs:comment>
@@ -885,6 +957,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#UrbanElement -->
+
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#UrbanElement">
         <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#InfrastructureElement"/>
@@ -898,6 +971,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityConsumption -->
 
+
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityConsumption">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
         <rdfs:comment xml:lang="en">Amount of utility consumed over a specific period.</rdfs:comment>
@@ -910,6 +984,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract -->
 
+
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityContract">
         <rdfs:comment xml:lang="es">Acuerdo entre un proveedor de suministros y un consumidor que define los términos, tarifas, calidad del suministro y responsabilidades para la prestación de suministros esenciales como electricidad, agua, gas, etc.</rdfs:comment>
         <rdfs:comment xml:lang="en">Agreement between a utility provider and a consumer that defines the terms, rates, service quality, and responsibilities for providing essential utilities like electricity, water, gas, etc.</rdfs:comment>
@@ -920,6 +995,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityMeter -->
+
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityMeter">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
@@ -934,6 +1010,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityRate -->
 
+
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilityRate">
         <rdfs:label xml:lang="en">A utility rate is the specific price structure or tariff charged by a service provider for a unit of consumption of a utility, such as kilowatt-hours of electricity or cubic meters of water.</rdfs:label>
         <rdfs:label xml:lang="es">La tarifa de un suministro es la estructura de precios o tarifa específica que cobra un proveedor de suministros por una unidad de consumo de un suministro, como kilovatios-hora de electricidad o metros cúbicos de agua.</rdfs:label>
@@ -944,6 +1021,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint -->
+
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#UtilitySupplyPoint">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
@@ -957,6 +1035,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://www.opengis.net/ont/geosparql#Feature -->
 
+
     <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature">
         <rdfs:comment xml:lang="es">Esta clase representa el tipo &quot;feature&quot; de nivel superior. Es equivalente a GFI_Feature, definida en la norma ISO 19156:2011, y es la superclase de todos los tipos de &quot;feature&quot;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
@@ -966,6 +1045,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
 
     <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry">
         <rdfs:comment xml:lang="es">La clase representa el tipo de geometría de nivel superior. Esta clase es equivalente a la clase UML GM_Object definida en la norma ISO 19107 y es la superclase de todos los tipos de geometría.</rdfs:comment>
@@ -978,6 +1058,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://www.opengis.net/ont/sf#Point -->
 
+
     <owl:Class rdf:about="http://www.opengis.net/ont/sf#Point">
         <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/sf#"/>
     </owl:Class>
@@ -985,6 +1066,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
 
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
@@ -994,6 +1076,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
 
+
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
     </owl:Class>
@@ -1001,6 +1084,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://www.w3.org/2006/time#Instant -->
+
 
     <owl:Class rdf:about="http://www.w3.org/2006/time#Instant">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
@@ -1017,6 +1101,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://www.w3.org/2006/time#Interval -->
 
+
     <owl:Class rdf:about="http://www.w3.org/2006/time#Interval">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
         <rdfs:comment xml:lang="en">A temporal entity with an extent or duration</rdfs:comment>
@@ -1031,11 +1116,13 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://www.w3.org/2006/time#ProperInterval -->
 
+
     <owl:Class rdf:about="http://www.w3.org/2006/time#ProperInterval"/>
     
 
 
     <!-- http://www.w3.org/2006/time#TemporalEntity -->
+
 
     <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity">
         <owl:equivalentClass>
@@ -1059,6 +1146,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://www.w3.org/ns/sosa/FeatureOfInterest -->
 
+
     <owl:Class rdf:about="http://www.w3.org/ns/sosa/FeatureOfInterest">
         <rdfs:comment xml:lang="es">Cosa cuya propiedad se está estimando o calculando en el curso de una Observación para llegar a un Resultado o cuya propiedad está siendo manipulada por un Actuador, o que está siendo muestreada o transformada en un acto de Muestreo.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
@@ -1070,16 +1158,18 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://www.w3.org/ns/sosa/ObservableProperty -->
 
+
     <owl:Class rdf:about="http://www.w3.org/ns/sosa/ObservableProperty">
         <rdfs:comment xml:lang="es">Una cualidad observable (propiedad, característica) de una entidad de interés.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
-        <rdfs:label>Observable Property</rdfs:label>
         <rdfs:label xml:lang="es">Propiedad observable</rdfs:label>
+        <rdfs:label>Observable Property</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.w3.org/ns/sosa/Observation -->
+
 
     <owl:Class rdf:about="http://www.w3.org/ns/sosa/Observation">
         <rdfs:comment xml:lang="es">Acto de realizar un procedimiento (de observación) para estimar o calcular el valor de una propiedad de una característica de interés. Se vincula a un sensor para describir qué realizó la observación y cómo; se vincula a una propiedad observable para describir de qué propiedad es la estimación del resultado, y a una característica de interés para detallar con qué se asoció esa propiedad.</rdfs:comment>
@@ -1092,6 +1182,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://www.w3.org/ns/sosa/Sensor -->
 
+
     <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sensor">
         <rdfs:comment xml:lang="es">Sistema que implementa un procedimiento de observación para determinar el valor de una Propiedad observable.Puede ser un dispositivo, una infraestructura, un agente (incluyendo humanos) o software (simulación). Un sensor responde a un estímulo, por ejemplo, un cambio en el entorno o datos de entrada compuestos por los resultados de observaciones previas.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
@@ -1103,11 +1194,13 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- https://saref.etsi.org/core/Device -->
 
+
     <owl:Class rdf:about="https://saref.etsi.org/core/Device"/>
     
 
 
     <!-- https://saref.etsi.org/core/Meter -->
+
 
     <owl:Class rdf:about="https://saref.etsi.org/core/Meter">
         <rdfs:subClassOf rdf:resource="https://saref.etsi.org/core/Device"/>
@@ -1120,6 +1213,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- https://schema.org/Organization -->
+
 
     <owl:Class rdf:about="https://schema.org/Organization">
         <rdfs:comment xml:lang="en">An organization such as a school, NGO, corporation, club, etc.</rdfs:comment>
@@ -1138,10 +1232,12 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
     
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#electricityConsumption -->
+
 
     <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#electricityConsumption">
         <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
@@ -1153,6 +1249,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#gasConsumption -->
 
+
     <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#gasConsumption">
         <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
         <rdfs:label xml:lang="es">consumo de gas</rdfs:label>
@@ -1162,6 +1259,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
     <!-- http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#waterConsumption -->
+
 
     <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#waterConsumption">
         <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
@@ -1173,6 +1271,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType -->
 
+
     <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     </owl:NamedIndividual>
@@ -1181,6 +1280,7 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
     <!-- http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType -->
 
+
     <owl:NamedIndividual rdf:about="http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     </owl:NamedIndividual>
@@ -1188,5 +1288,6 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
 
