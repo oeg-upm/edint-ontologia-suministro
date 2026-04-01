@@ -1,0 +1,35 @@
+# SUM14: ¿Cuál es el consumo de agua (en unidad) por mes en un elemento de infraestructura durante el último año?
+
+PREFIX edintsum: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?infrastructureElement ?yearMonth ?unit
+       (SUM(xsd:decimal(?value)) AS ?monthlyWaterConsumption)
+WHERE {
+  ?infrastructureElement edintsum:hasUtilitySupplyPoint ?supplyPoint .
+
+  ?obs a edintsum:UtilityConsumption ;
+       sosa:hasFeatureOfInterest ?supplyPoint ;
+       sosa:observedProperty edintsum:waterConsumption ;
+       sosa:hasResult ?result ;
+       sosa:phenomenonTime ?interval .
+
+  ?result a qudt:QuantityValue ;
+          qudt:value ?value ;
+          qudt:hasUnit ?unit .
+
+  ?interval time:hasBeginning ?begin .
+  ?begin time:inXSDDateTimeStamp ?beginDate .
+
+  BIND(SUBSTR(STR(?beginDate), 1, 7) AS ?yearMonth)
+
+  FILTER(
+    ?beginDate >= "2025-01-01T00:00:00Z"^^xsd:dateTimeStamp &&
+    ?beginDate <  "2026-01-01T00:00:00Z"^^xsd:dateTimeStamp
+  )
+}
+GROUP BY ?infrastructureElement ?yearMonth ?unit
+ORDER BY ?infrastructureElement ?yearMonth

@@ -1,0 +1,56 @@
+PREFIX edintsum: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#>
+PREFIX edintinf: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#>
+PREFIX esadm: <http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?divisionLabel ?infrastructureType ?typeLabel ?unit
+       (AVG(?elementConsumption) AS ?avgWaterConsumption)
+WHERE {
+  VALUES ?division { <URI_DEL_DISTRITO> }
+
+  {
+    SELECT ?division ?infrastructureElement ?infrastructureType ?typeLabel ?unit
+           (SUM(xsd:decimal(?value)) AS ?elementConsumption)
+    WHERE {
+      ?division a esadm:Distrito .
+
+      ?infrastructureElement a edintinf:InfrastructureElement ;
+                             edintinf:belongsTo ?division ;
+                             edintinf:hasInfrastructureType ?infrastructureType ;
+                             edintsum:hasUtilitySupplyPoint ?supplyPoint .
+
+      ?obs a edintsum:UtilityConsumption ;
+           sosa:hasFeatureOfInterest ?supplyPoint ;
+           sosa:observedProperty edintsum:waterConsumption ;
+           sosa:hasResult ?result ;
+           sosa:phenomenonTime ?interval .
+
+      ?result a qudt:QuantityValue ;
+              qudt:value ?value ;
+              qudt:hasUnit ?unit .
+
+      ?interval time:hasBeginning ?begin ;
+                time:hasEnd ?end .
+
+      ?begin time:inXSDDateTimeStamp ?beginDate .
+      ?end   time:inXSDDateTimeStamp ?endDate .
+
+      OPTIONAL { ?infrastructureType skos:prefLabel ?typeLabel }
+
+      FILTER(
+        ?beginDate >= "2025-01-01T00:00:00Z"^^xsd:dateTimeStamp &&
+        ?endDate   <= "2025-12-31T23:59:59Z"^^xsd:dateTimeStamp
+      )
+    }
+    GROUP BY ?division ?infrastructureElement ?infrastructureType ?typeLabel ?unit
+  }
+
+  OPTIONAL { ?division rdfs:label ?divisionLabel }
+}
+GROUP BY ?divisionLabel ?infrastructureType ?typeLabel ?unit
+ORDER BY ?divisionLabel ?typeLabel

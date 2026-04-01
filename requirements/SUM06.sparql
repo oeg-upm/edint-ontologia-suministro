@@ -1,0 +1,34 @@
+# SUM06: ¿Cuál es el consumo anual de electricidad (en kWh) registrado en un elemento de infraestructura en durante un periodo de tiempo?
+
+PREFIX edintsum: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?infrastructureElement (SUM(xsd:decimal(?value)) AS ?annualElectricityConsumptionKWh)
+WHERE {
+  ?infrastructureElement edintsum:hasUtilitySupplyPoint ?supplyPoint .
+
+  ?obs a edintsum:UtilityConsumption ;
+       sosa:hasFeatureOfInterest ?supplyPoint ;
+       sosa:observedProperty edintsum:electricityConsumption ;
+       sosa:hasResult ?result ;
+       sosa:phenomenonTime ?interval .
+
+  ?result a qudt:QuantityValue ;
+          qudt:value ?value ;
+          qudt:hasUnit <http://qudt.org/vocab/unit/KiloW-HR> .
+
+  ?interval time:hasBeginning ?begin ;
+            time:hasEnd ?end .
+
+  ?begin time:inXSDDateTimeStamp ?beginDate .
+  ?end   time:inXSDDateTimeStamp ?endDate .
+
+  FILTER(
+    ?beginDate >= "2025-01-01T00:00:00Z"^^xsd:dateTimeStamp &&
+    ?endDate   <= "2025-12-31T23:59:59Z"^^xsd:dateTimeStamp
+  )
+}
+GROUP BY ?infrastructureElement

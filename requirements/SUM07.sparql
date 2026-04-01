@@ -1,0 +1,35 @@
+# SUM07: ¿Cuál es el consumo de electricidad (en kWh) por mes en un elemento de infraestructura durante el último año?
+
+PREFIX edintsum: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?infrastructureElement ?yearMonth
+       (SUM(xsd:decimal(?value)) AS ?monthlyElectricityConsumptionKWh)
+WHERE {
+  ?infrastructureElement edintsum:hasUtilitySupplyPoint ?supplyPoint .
+
+  ?obs a edintsum:UtilityConsumption ;
+       sosa:hasFeatureOfInterest ?supplyPoint ;
+       sosa:observedProperty edintsum:electricityConsumption ;
+       sosa:hasResult ?result ;
+       sosa:phenomenonTime ?interval .
+
+  ?result a qudt:QuantityValue ;
+          qudt:value ?value ;
+          qudt:hasUnit <http://qudt.org/vocab/unit/KiloW-HR> .
+
+  ?interval time:hasBeginning ?begin .
+  ?begin time:inXSDDateTimeStamp ?beginDate .
+
+  BIND(SUBSTR(STR(?beginDate), 1, 7) AS ?yearMonth)
+
+  FILTER(
+    ?beginDate >= "2025-01-01T00:00:00Z"^^xsd:dateTimeStamp &&
+    ?beginDate <  "2026-01-01T00:00:00Z"^^xsd:dateTimeStamp
+  )
+}
+GROUP BY ?infrastructureElement ?yearMonth
+ORDER BY ?infrastructureElement ?yearMonth
