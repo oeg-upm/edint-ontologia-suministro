@@ -1,0 +1,180 @@
+prefixes:
+  edintsum: http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#
+  edintutiltype: http://vocab.linkeddata.es/datosabiertos/kos/edint/UtilityType/
+  edintinf: http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#
+  sosa: http://www.w3.org/ns/sosa/
+  edintmetertype: http://vocab.linkeddata.es/datosabiertos/kos/edint/MeterType/
+  schema: https://schema.org/
+  dct: http://purl.org/dc/terms/
+  esdir: http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/direccion-postal#
+  geosparql: http://www.opengis.net/ont/geosparql#
+  ester: http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#
+  qudt: http://qudt.org/schema/qudt/
+  time: http://www.w3.org/2006/time#
+
+
+
+sources:
+  data-source: ['data.csv~csv']
+
+mappings:
+  utilitysupplyPoint:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/puntoSuministro/$(CUPS) # id_autorizacion
+    po:
+      - [a, edintsum:UtilitySupplyPoint]
+      - [dct:identifier, "$(CUPS)"]
+      - [rdfs:label, "Punto de Suministro $(CUPS), Descripción/Grupo: $(GRUPO)"]
+      - [edintsum:hasUtilityType, "edintutiltype:$(CLASE)~iri"] # SKOS
+
+
+  infra:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/equipamientoMunicipal/$(ID) # Elemento infraestructura
+    po:
+      - [a, edintinf:InfrastructureElement]
+      - [edintsum:hasUtilitySupplyPoint, "http://vocab.linkeddata.es/datosabiertos/recurso/puntoSuministro/$(CUPS)~iri"]
+      - [dct:identifier, "$(ID)"]
+      - [rdfs:label, "$(EDIFICIO)"]
+      - [schema:address, "http://vocab.linkeddata.es/datosabiertos/recurso/direccion-postal/$(CODIGO_POSTAL)~iri"]
+      - [edintinf:belongsTo, "http://vocab.linkeddata.es/datosabiertos/recurso/sector-publico/territorio/barrio/$(CÓDIGO BARRIO)~iri"]
+      - [geosparql:hasGeometry, "http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/locations/$(COORDENADA-X)-$(COORDENADA-Y)~iri"]
+
+  postal_address:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/direccion-postal/$(CODIGO_POSTAL)
+    po:
+      - [a, esdir:DireccionPostal]
+      - [rdfs:label, "$(DIRECCION)"]
+
+  barrio:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/sector-publico/territorio/barrio/$(CÓDIGO BARRIO)
+    po:
+      - [a, ester:Barrio]
+      - [dct:identifier, "$(CÓDIGO BARRIO)"]
+      - [rdfs:label, "$(BARRIO)"]
+
+  geometry:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/locations/$(COORDENADA-X)-$(COORDENADA-Y)
+    po:
+      - [a, geosparql:Geometry]
+      # Construimos el punto WKT con las columnas de coordenadas WGS84
+      - [geosparql:asWKT, "POINT ($(LONGITUD) $(LATITUD))", geosparql:wktLiteral]
+  contract:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/contratoSuministo/$(ID) # Elemento infraestructura
+    po:
+      - [a, edintsum:UtilityContract]
+      - [edintsum:appliesTo,"http://vocab.linkeddata.es/datosabiertos/recurso/puntoSuministro/$(CUPS)~iri"]
+      - [edintsum:contractHolder, "http://vocab.linkeddata.es/datosabiertos/recurso/organizacion/$(ID_ORGANIZACION)~iri"]
+      - [edintsum:hasRate, "http://vocab.linkeddata.es/datosabiertos/recurso/tarifaSuministro/$(TARIFA_ID)~iri"]
+      - [dct:identifier, "Contrato-$(CUPS)"]
+      - [rdfs:label, "Contrato de suministro para: $(EDIFICIO)"]
+      - [rdfs:label, "Contrato de suministro de $(CLASE) situado en $(DIRECCION)"]
+
+  organization_titular:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/organizacion/$(ID_ORGANIZACION)
+    po:
+      - [a, schema:Organization]
+      - [dct:identifier, "$(ID_ORGANIZACION)"]
+      - [rdf:label, "Ayuntamiento de Madrid"]
+      - [schema:legalName, "Ayuntamiento de Madrid"]
+
+  organization_fabricante:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/organizacion/$(FABRICANTE)
+    po:
+      - [a, schema:Organization]
+      - [dct:identifier, "$(FABRICANTE)"]
+      - [rdfs:label, "Fabricante: $(FABRICANTE)"]
+
+  utilityConsumption: # Observation
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/ConsumoSuministro/$(ID_CONSUMO)
+    po:
+      - [a, edintsum:UtilityConsumption]
+      - [sosa:hasFeatureOfInterest, "http://vocab.linkeddata.es/datosabiertos/recurso/puntoSuministro/$(CUPS)~iri"]
+      - [sosa:madeBySensor, "http://vocab.linkeddata.es/datosabiertos/recurso/medidorSuministro/$(SENSOR)~iri"] # Medidor de suministro suministro_id
+      - [sosa:phenomenonTime,"http://vocab.linkeddata.es/datosabiertos/recurso/intervaloMedicion/$(ID_CONSUMO)~iri"]
+      - [sosa:hasResult, "http://vocab.linkeddata.es/datosabiertos/recurso/valorSuministro/$(ID_CONSUMO)~iri"]
+      - [dct:identifier, "$(ID_CONSUMO)"]
+      - [rdfs:label, "Consumo de $(CONSUMO) $(UNIDADES) en $(MES)/$(ANIO)"]
+      - [rdfs:label, "Lectura del sensor $(SENSOR) correspondiente a $(MES)/$(ANIO)"]
+
+  consumptionValue: # valorSuministro
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/valorSuministro/$(ID_CONSUMO)
+    po:
+      - [a, qudt:QuantityValue]
+      - [qudt:value, $(CONSUMO), xsd:float]
+      - [qudt:hasUnit, "http://vocab.linkeddata.es/datosabiertos/recurso/unidad/$(UNIDADES)~iri"] # Enlace a la unidad (kWh)
+      - [rdfs:label, "Cantidad consumida: $(CONSUMO) $(UNIDADES)"]
+
+  supplyMesure:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/intervaloMedicion/$(ID_CONSUMO)
+    po:
+      - [a, time:Interval]
+      - [time:hasBeginning, "http://vocab.linkeddata.es/datosabiertos/recurso/instante/$(ID_CONSUMO)/$(FECHA_TIMESTAMP_INICIO)~iri"]
+      - [time:hasEnd,"http://vocab.linkeddata.es/datosabiertos/recurso/instante/$(ID_CONSUMO)/$(FECHA_TIMESTAMP_FIN)~iri"]
+      - [rdfs:label, "Período de medición correspondiente a $(MES)/$(ANIO)"]
+
+  instatOfMeasureStart:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/instante/$(ID_CONSUMO)/$(FECHA_TIMESTAMP_INICIO)
+    po:
+      - [ a, time:Instant ]
+      - [time:inXSDDateTimeStamp, "$(FECHA_TIMESTAMP_INICIO)", xsd:dateTimeStamp]
+      - [rdfs:label, "Instante de tiempo: $(FECHA_TIMESTAMP_INICIO)"]
+
+  instatOfMeasureEnd:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/instante/$(ID_CONSUMO)/$(FECHA_TIMESTAMP_FIN)
+    po:
+      - [ a, time:Instant ]
+      - [ time:inXSDDateTimeStamp, "$(FECHA_TIMESTAMP_FIN)", xsd:dateTimeStamp ]
+      - [ rdfs:label, "Instante de tiempo: $(FECHA_TIMESTAMP_FIN)" ]
+  unit: #Unidad de Medida
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/unidad/$(UNIDADES)
+    po:
+      - [a, qudt:Unit]
+      - [rdfs:label, "$(UNIDADES)"]
+
+  utilityMeter:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/medidorSuministro/$(SENSOR)
+    po:
+      - [a, edintsum:UtilityMeter]
+      - [schema:manufacturer, "http://vocab.linkeddata.es/datosabiertos/recurso/organizacion/$(FABRICANTE)~iri"]
+      - [edintsum:hasMeterType, "edintmetertype:$(TIPO)~iri"] # SKOS tipo_medidor
+      - [dct:identifier, "$(SENSOR)"]
+      - [rdfs:label, "Medidor: $(SENSOR), Sensor/Medidor de tipo: $(TIPO)"]
+
+  utilityRate:
+    sources:
+      - data-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/tarifaSuministro/$(TARIFA_ID)
+    po:
+      - [a, edintsum:UtilityRate]
+      - [dct:identifier, "$(TARIFA_ID)"]
+      - [rdfs:label, "Tarifa de tipo: $(TARIFA_ID)"]
+      - [rdfs:label, "Tarifa aplicada para el suministro de $(CLASE). Referencia del grupo: $(GRUPO)"]
