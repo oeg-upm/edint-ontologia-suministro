@@ -1,0 +1,603 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Documentación SPARQL</title>
+        <style>
+            /* Reset y Estructura Base */
+            body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; display: flex; height: 100vh; background-color: #fcfcfc; color: #333; }
+
+            /* Sidebar Izquierda Fija */
+            .sidebar { 
+                width: 280px; 
+                background-color: #004a99; 
+                color: white; 
+                height: 100vh; 
+                position: fixed; 
+                overflow-y: auto; 
+                box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+            .sidebar-header { padding: 25px 20px; border-bottom: 1px solid #0056b3; text-align: center; }
+            .sidebar-header h2 { margin: 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: #e0f0ff; }
+
+            .sidebar ul { list-style: none; padding: 0; margin: 0; }
+            .sidebar li { border-bottom: 1px solid #0056b3; }
+            .sidebar a { 
+                display: block; 
+                padding: 15px 20px; 
+                color: #add8e6; 
+                text-decoration: none; 
+                transition: all 0.2s;
+                font-size: 0.9rem;
+            }
+            .sidebar a:hover { background-color: #003366; color: white; padding-left: 25px; }
+
+            /* Contenido Principal Derecho */
+            .main-content { 
+                margin-left: 280px; 
+                flex-grow: 1; 
+                padding: 40px; 
+                overflow-y: auto; 
+            }
+
+            .file-card { 
+                background: white; 
+                border: 1px solid #d1d9e0; 
+                border-radius: 8px; 
+                margin-bottom: 60px; 
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            }
+            .file-header { 
+                background-color: #f0f7ff; 
+                padding: 15px 25px; 
+                border-bottom: 2px solid #004a99; 
+                color: #004a99; 
+                font-weight: bold; 
+                font-size: 1.3rem; 
+                border-radius: 8px 8px 0 0;
+            }
+
+            .query-block { padding: 25px; border-bottom: 1px solid #eee; }
+            .query-block:last-child { border-bottom: none; }
+            .query-title { 
+                color: #004a99; 
+                font-weight: bold; 
+                margin-bottom: 12px; 
+                font-size: 1.05rem; 
+                display: block;
+                border-left: 3px solid #004a99;
+                padding-left: 10px;
+            }
+
+            /* Formato de Código Estilo SQL */
+            pre { 
+                background-color: #f8f9fa !important; 
+                border: 1px solid #e1e4e8; 
+                padding: 20px; 
+                border-radius: 5px; 
+                overflow-x: auto; 
+                font-family: 'Consolas', 'Monaco', monospace; 
+                font-size: 13px; 
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            /* Inserción de estilos de Pygments + el Fix custom */
+            pre { line-height: 125%; }
+td.linenos .normal { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.sparql-code .hll { background-color: #ffffcc }
+.sparql-code { background: #f0f0f0; }
+.sparql-code .c { color: #60A0B0; font-style: italic } /* Comment */
+.sparql-code .err { border: 1px solid #F00 } /* Error */
+.sparql-code .k { color: #007020; font-weight: bold } /* Keyword */
+.sparql-code .o { color: #666 } /* Operator */
+.sparql-code .ch { color: #60A0B0; font-style: italic } /* Comment.Hashbang */
+.sparql-code .cm { color: #60A0B0; font-style: italic } /* Comment.Multiline */
+.sparql-code .cp { color: #007020 } /* Comment.Preproc */
+.sparql-code .cpf { color: #60A0B0; font-style: italic } /* Comment.PreprocFile */
+.sparql-code .c1 { color: #60A0B0; font-style: italic } /* Comment.Single */
+.sparql-code .cs { color: #60A0B0; background-color: #FFF0F0 } /* Comment.Special */
+.sparql-code .gd { color: #A00000 } /* Generic.Deleted */
+.sparql-code .ge { font-style: italic } /* Generic.Emph */
+.sparql-code .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.sparql-code .gr { color: #F00 } /* Generic.Error */
+.sparql-code .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.sparql-code .gi { color: #00A000 } /* Generic.Inserted */
+.sparql-code .go { color: #888 } /* Generic.Output */
+.sparql-code .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+.sparql-code .gs { font-weight: bold } /* Generic.Strong */
+.sparql-code .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.sparql-code .gt { color: #04D } /* Generic.Traceback */
+.sparql-code .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.sparql-code .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.sparql-code .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.sparql-code .kp { color: #007020 } /* Keyword.Pseudo */
+.sparql-code .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.sparql-code .kt { color: #902000 } /* Keyword.Type */
+.sparql-code .m { color: #40A070 } /* Literal.Number */
+.sparql-code .s { color: #4070A0 } /* Literal.String */
+.sparql-code .na { color: #4070A0 } /* Name.Attribute */
+.sparql-code .nb { color: #007020 } /* Name.Builtin */
+.sparql-code .nc { color: #0E84B5; font-weight: bold } /* Name.Class */
+.sparql-code .no { color: #60ADD5 } /* Name.Constant */
+.sparql-code .nd { color: #555; font-weight: bold } /* Name.Decorator */
+.sparql-code .ni { color: #D55537; font-weight: bold } /* Name.Entity */
+.sparql-code .ne { color: #007020 } /* Name.Exception */
+.sparql-code .nf { color: #06287E } /* Name.Function */
+.sparql-code .nl { color: #002070; font-weight: bold } /* Name.Label */
+.sparql-code .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+.sparql-code .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.sparql-code .nv { color: #BB60D5 } /* Name.Variable */
+.sparql-code .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.sparql-code .w { color: #BBB } /* Text.Whitespace */
+.sparql-code .mb { color: #40A070 } /* Literal.Number.Bin */
+.sparql-code .mf { color: #40A070 } /* Literal.Number.Float */
+.sparql-code .mh { color: #40A070 } /* Literal.Number.Hex */
+.sparql-code .mi { color: #40A070 } /* Literal.Number.Integer */
+.sparql-code .mo { color: #40A070 } /* Literal.Number.Oct */
+.sparql-code .sa { color: #4070A0 } /* Literal.String.Affix */
+.sparql-code .sb { color: #4070A0 } /* Literal.String.Backtick */
+.sparql-code .sc { color: #4070A0 } /* Literal.String.Char */
+.sparql-code .dl { color: #4070A0 } /* Literal.String.Delimiter */
+.sparql-code .sd { color: #4070A0; font-style: italic } /* Literal.String.Doc */
+.sparql-code .s2 { color: #4070A0 } /* Literal.String.Double */
+.sparql-code .se { color: #4070A0; font-weight: bold } /* Literal.String.Escape */
+.sparql-code .sh { color: #4070A0 } /* Literal.String.Heredoc */
+.sparql-code .si { color: #70A0D0; font-style: italic } /* Literal.String.Interpol */
+.sparql-code .sx { color: #C65D09 } /* Literal.String.Other */
+.sparql-code .sr { color: #235388 } /* Literal.String.Regex */
+.sparql-code .s1 { color: #4070A0 } /* Literal.String.Single */
+.sparql-code .ss { color: #517918 } /* Literal.String.Symbol */
+.sparql-code .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.sparql-code .fm { color: #06287E } /* Name.Function.Magic */
+.sparql-code .vc { color: #BB60D5 } /* Name.Variable.Class */
+.sparql-code .vg { color: #BB60D5 } /* Name.Variable.Global */
+.sparql-code .vi { color: #BB60D5 } /* Name.Variable.Instance */
+.sparql-code .vm { color: #BB60D5 } /* Name.Variable.Magic */
+.sparql-code .il { color: #40A070 } /* Literal.Number.Integer.Long */
+            
+            /* Fix para quitar los recuadros rojos de error sintáctico */
+            .sparql-code .err { border: none !important; color: inherit; }
+            
+
+            /* Scrollbar personalizada para la sidebar */
+            .sidebar::-webkit-scrollbar { width: 6px; }
+            .sidebar::-webkit-scrollbar-thumb { background: #003366; }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Consultas</h2>
+            </div>
+            <ul>
+    <li><a href="#SUM06_sparql">SUM06.sparql</a></li><li><a href="#SUM07_sparql">SUM07.sparql</a></li><li><a href="#SUM08_sparql">SUM08.sparql</a></li><li><a href="#SUM10_sparql">SUM10.sparql</a></li><li><a href="#SUM11_sparql">SUM11.sparql</a></li><li><a href="#SUM12_sparql">SUM12.sparql</a></li><li><a href="#SUM13_sparql">SUM13.sparql</a></li><li><a href="#SUM14_sparql">SUM14.sparql</a></li><li><a href="#SUM15_sparql">SUM15.sparql</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+    <section class="file-card" id="SUM06_sparql"><div class="file-header">Fichero: SUM06.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">SUM06: ¿Cuál es el consumo anual de electricidad (en kWh) registrado en un elemento de infraestructura en durante un periodo de tiempo?</span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintsum</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?infrastructureElement</span> <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?annualElectricityConsumptionKWh</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?infrastructureElement</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+  <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">electricityConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+  <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nl">&lt;http://qudt.org/vocab/unit/KiloW-HR&gt;</span> <span class="p">.</span>
+
+  <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">;</span>
+            <span class="nn">time</span><span class="p">:</span><span class="nt">hasEnd</span> <span class="nv">?end</span> <span class="p">.</span>
+
+  <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+  <span class="nv">?end</span>   <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?endDate</span> <span class="p">.</span>
+
+  <span class="k">FILTER</span><span class="p">(</span>
+    <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+    <span class="nv">?endDate</span>   <span class="o">&lt;=</span> <span class="s">&quot;2025-12-31T23:59:59Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?infrastructureElement</span>
+</pre></div>
+
+                    </div>
+                    </section><section class="file-card" id="SUM07_sparql"><div class="file-header">Fichero: SUM07.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">SUM07: ¿Cuál es el consumo de electricidad (en kWh) por mes en un elemento de infraestructura durante el último año?</span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintsum</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span>
+       <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?monthlyElectricityConsumptionKWh</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?infrastructureElement</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+  <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">electricityConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+  <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nl">&lt;http://qudt.org/vocab/unit/KiloW-HR&gt;</span> <span class="p">.</span>
+
+  <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">.</span>
+  <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">SUBSTR</span><span class="p">(</span><span class="nf">STR</span><span class="p">(</span><span class="nv">?beginDate</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?yearMonth</span><span class="p">)</span>
+
+  <span class="k">FILTER</span><span class="p">(</span>
+    <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+    <span class="nv">?beginDate</span> <span class="o">&lt;</span>  <span class="s">&quot;2026-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span>
+<span class="k">ORDER BY</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span>
+</pre></div>
+
+                    </div>
+                    </section><section class="file-card" id="SUM08_sparql"><div class="file-header">Fichero: SUM08.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">SUM08: ¿Cuál es el consumo medio de electricidad por tipo de elemento de infraestructura (en una división administrativa) durante un periodo de tiempo?</span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintsum</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">edintinf</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">esadm</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">skos</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2004/02/skos/core#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?divisionLabel</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span>
+       <span class="p">(</span><span class="nf">AVG</span><span class="p">(</span><span class="nv">?elementConsumption</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?avgElectricityConsumptionKWh</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">VALUES</span> <span class="nv">?division</span> <span class="p">{</span> <span class="nl">&lt;URI_DEL_DISTRITO&gt;</span> <span class="p">}</span> 
+
+  <span class="p">{</span>
+    <span class="k">SELECT</span> <span class="nv">?division</span> <span class="nv">?infrastructureElement</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> 
+           <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?elementConsumption</span><span class="p">)</span>
+    <span class="k">WHERE</span> <span class="p">{</span>
+      <span class="nv">?division</span> <span class="k">a</span> <span class="nn">esadm</span><span class="p">:</span><span class="nt">Distrito</span> <span class="p">.</span>
+
+      <span class="nv">?infrastructureElement</span> <span class="k">a</span> <span class="nn">edintinf</span><span class="p">:</span><span class="nt">InfrastructureElement</span> <span class="p">;</span>
+                             <span class="nn">edintinf</span><span class="p">:</span><span class="nt">belongsTo</span> <span class="nv">?division</span> <span class="p">;</span>
+                             <span class="nn">edintinf</span><span class="p">:</span><span class="nt">hasInfrastructureType</span> <span class="nv">?infrastructureType</span> <span class="p">;</span>
+                             <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+      <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">electricityConsumption</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+      <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+              <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+              <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nl">&lt;http://qudt.org/vocab/unit/KiloW-HR&gt;</span> <span class="p">.</span>
+
+      <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">;</span>
+                <span class="nn">time</span><span class="p">:</span><span class="nt">hasEnd</span> <span class="nv">?end</span> <span class="p">.</span>
+
+      <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+      <span class="nv">?end</span>   <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?endDate</span> <span class="p">.</span>
+
+      <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?infrastructureType</span> <span class="nn">skos</span><span class="p">:</span><span class="nt">prefLabel</span> <span class="nv">?typeLabel</span> <span class="p">}</span>
+
+      <span class="k">FILTER</span><span class="p">(</span>
+        <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+        <span class="nv">?endDate</span>   <span class="o">&lt;=</span> <span class="s">&quot;2025-12-31T23:59:59Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+      <span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">GROUP BY</span> <span class="nv">?division</span> <span class="nv">?infrastructureElement</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?division</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?divisionLabel</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?divisionLabel</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span>
+<span class="k">ORDER BY</span> <span class="nv">?divisionLabel</span> <span class="nv">?typeLabel</span>
+</pre></div>
+
+                    </div>
+                    </section><section class="file-card" id="SUM10_sparql"><div class="file-header">Fichero: SUM10.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">SUM10:¿Cuál es el consumo anual de gas (en UNIDAD) registrado en un elemento de infraestructura en durante un periodo de tiempo?</span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintsum</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?infrastructureElement</span> <span class="nv">?unit</span>
+       <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?annualGasConsumption</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?infrastructureElement</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+  <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">gasConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+  <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nv">?unit</span> <span class="p">.</span>
+
+  <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">;</span>
+            <span class="nn">time</span><span class="p">:</span><span class="nt">hasEnd</span> <span class="nv">?end</span> <span class="p">.</span>
+
+  <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+  <span class="nv">?end</span>   <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?endDate</span> <span class="p">.</span>
+
+  <span class="k">FILTER</span><span class="p">(</span>
+    <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+    <span class="nv">?endDate</span>   <span class="o">&lt;=</span> <span class="s">&quot;2025-12-31T23:59:59Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?infrastructureElement</span> <span class="nv">?unit</span>
+</pre></div>
+
+                    </div>
+                    </section><section class="file-card" id="SUM11_sparql"><div class="file-header">Fichero: SUM11.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">SUM11: ¿Cuál es el consumo de gas (en unidad) por mes en un elemento de infraestructura durante el último año?</span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintsum</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span> <span class="nv">?unit</span>
+       <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?monthlyGasConsumption</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?infrastructureElement</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+  <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">gasConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+  <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nv">?unit</span> <span class="p">.</span>
+
+  <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">.</span>
+  <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">SUBSTR</span><span class="p">(</span><span class="nf">STR</span><span class="p">(</span><span class="nv">?beginDate</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?yearMonth</span><span class="p">)</span>
+
+  <span class="k">FILTER</span><span class="p">(</span>
+    <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+    <span class="nv">?beginDate</span> <span class="o">&lt;</span>  <span class="s">&quot;2026-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span> <span class="nv">?unit</span>
+<span class="k">ORDER BY</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span>
+</pre></div>
+
+                    </div>
+                    </section><section class="file-card" id="SUM12_sparql"><div class="file-header">Fichero: SUM12.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">PREFIX edintsum: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#></span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintinf</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">esadm</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">skos</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2004/02/skos/core#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?divisionLabel</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> <span class="nv">?unit</span>
+       <span class="p">(</span><span class="nf">AVG</span><span class="p">(</span><span class="nv">?elementConsumption</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?avgGasConsumption</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">VALUES</span> <span class="nv">?division</span> <span class="p">{</span> <span class="nl">&lt;URI_DEL_DISTRITO&gt;</span> <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">SELECT</span> <span class="nv">?division</span> <span class="nv">?infrastructureElement</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> <span class="nv">?unit</span>
+           <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?elementConsumption</span><span class="p">)</span>
+    <span class="k">WHERE</span> <span class="p">{</span>
+      <span class="nv">?division</span> <span class="k">a</span> <span class="nn">esadm</span><span class="p">:</span><span class="nt">Distrito</span> <span class="p">.</span>
+
+      <span class="nv">?infrastructureElement</span> <span class="k">a</span> <span class="nn">edintinf</span><span class="p">:</span><span class="nt">InfrastructureElement</span> <span class="p">;</span>
+                             <span class="nn">edintinf</span><span class="p">:</span><span class="nt">belongsTo</span> <span class="nv">?division</span> <span class="p">;</span>
+                             <span class="nn">edintinf</span><span class="p">:</span><span class="nt">hasInfrastructureType</span> <span class="nv">?infrastructureType</span> <span class="p">;</span>
+                             <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+      <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">gasConsumption</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+      <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+              <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+              <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nv">?unit</span> <span class="p">.</span>
+
+      <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">;</span>
+                <span class="nn">time</span><span class="p">:</span><span class="nt">hasEnd</span> <span class="nv">?end</span> <span class="p">.</span>
+
+      <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+      <span class="nv">?end</span>   <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?endDate</span> <span class="p">.</span>
+
+      <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?infrastructureType</span> <span class="nn">skos</span><span class="p">:</span><span class="nt">prefLabel</span> <span class="nv">?typeLabel</span> <span class="p">}</span>
+
+      <span class="k">FILTER</span><span class="p">(</span>
+        <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+        <span class="nv">?endDate</span>   <span class="o">&lt;=</span> <span class="s">&quot;2025-12-31T23:59:59Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+      <span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">GROUP BY</span> <span class="nv">?division</span> <span class="nv">?infrastructureElement</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> <span class="nv">?unit</span>
+  <span class="p">}</span>
+
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?division</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?divisionLabel</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?divisionLabel</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> <span class="nv">?unit</span>
+<span class="k">ORDER BY</span> <span class="nv">?divisionLabel</span> <span class="nv">?typeLabel</span>
+</pre></div>
+
+                    </div>
+                    </section><section class="file-card" id="SUM13_sparql"><div class="file-header">Fichero: SUM13.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">SUM13: ¿Cuál es el consumo anual de agua (en UNIDAD) registrado en un elemento de infraestructura en durante un periodo de tiempo?</span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintsum</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?infrastructureElement</span> <span class="nv">?unit</span>
+       <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?annualWaterConsumption</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?infrastructureElement</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+  <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">waterConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+  <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nv">?unit</span> <span class="p">.</span>
+
+  <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">;</span>
+            <span class="nn">time</span><span class="p">:</span><span class="nt">hasEnd</span> <span class="nv">?end</span> <span class="p">.</span>
+
+  <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+  <span class="nv">?end</span>   <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?endDate</span> <span class="p">.</span>
+
+  <span class="k">FILTER</span><span class="p">(</span>
+    <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+    <span class="nv">?endDate</span>   <span class="o">&lt;=</span> <span class="s">&quot;2025-12-31T23:59:59Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?infrastructureElement</span> <span class="nv">?unit</span>
+</pre></div>
+
+                    </div>
+                    </section><section class="file-card" id="SUM14_sparql"><div class="file-header">Fichero: SUM14.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">SUM14: ¿Cuál es el consumo de agua (en unidad) por mes en un elemento de infraestructura durante el último año?</span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintsum</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span> <span class="nv">?unit</span>
+       <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?monthlyWaterConsumption</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?infrastructureElement</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+  <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">waterConsumption</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+       <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+  <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+          <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nv">?unit</span> <span class="p">.</span>
+
+  <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">.</span>
+  <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">SUBSTR</span><span class="p">(</span><span class="nf">STR</span><span class="p">(</span><span class="nv">?beginDate</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?yearMonth</span><span class="p">)</span>
+
+  <span class="k">FILTER</span><span class="p">(</span>
+    <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+    <span class="nv">?beginDate</span> <span class="o">&lt;</span>  <span class="s">&quot;2026-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span> <span class="nv">?unit</span>
+<span class="k">ORDER BY</span> <span class="nv">?infrastructureElement</span> <span class="nv">?yearMonth</span>
+</pre></div>
+
+                    </div>
+                    </section><section class="file-card" id="SUM15_sparql"><div class="file-header">Fichero: SUM15.sparql</div>
+                    <div class="query-block">
+                        <span class="query-title">PREFIX edintsum: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#></span>
+                        <div class="sparql-code"><pre><span></span><span class="k">PREFIX</span> <span class="nn">edintinf</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">esadm</span><span class="p">:</span> <span class="nl">&lt;http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">qudt</span><span class="p">:</span> <span class="nl">&lt;http://qudt.org/schema/qudt/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">time</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2006/time#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">skos</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2004/02/skos/core#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+
+<span class="k">SELECT</span> <span class="nv">?divisionLabel</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> <span class="nv">?unit</span>
+       <span class="p">(</span><span class="nf">AVG</span><span class="p">(</span><span class="nv">?elementConsumption</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?avgWaterConsumption</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">VALUES</span> <span class="nv">?division</span> <span class="p">{</span> <span class="nl">&lt;URI_DEL_DISTRITO&gt;</span> <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">SELECT</span> <span class="nv">?division</span> <span class="nv">?infrastructureElement</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> <span class="nv">?unit</span>
+           <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">decimal</span><span class="p">(</span><span class="nv">?value</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?elementConsumption</span><span class="p">)</span>
+    <span class="k">WHERE</span> <span class="p">{</span>
+      <span class="nv">?division</span> <span class="k">a</span> <span class="nn">esadm</span><span class="p">:</span><span class="nt">Distrito</span> <span class="p">.</span>
+
+      <span class="nv">?infrastructureElement</span> <span class="k">a</span> <span class="nn">edintinf</span><span class="p">:</span><span class="nt">InfrastructureElement</span> <span class="p">;</span>
+                             <span class="nn">edintinf</span><span class="p">:</span><span class="nt">belongsTo</span> <span class="nv">?division</span> <span class="p">;</span>
+                             <span class="nn">edintinf</span><span class="p">:</span><span class="nt">hasInfrastructureType</span> <span class="nv">?infrastructureType</span> <span class="p">;</span>
+                             <span class="nn">edintsum</span><span class="p">:</span><span class="nt">hasUtilitySupplyPoint</span> <span class="nv">?supplyPoint</span> <span class="p">.</span>
+
+      <span class="nv">?obs</span> <span class="k">a</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">UtilityConsumption</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasFeatureOfInterest</span> <span class="nv">?supplyPoint</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">edintsum</span><span class="p">:</span><span class="nt">waterConsumption</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nv">?result</span> <span class="p">;</span>
+           <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nv">?interval</span> <span class="p">.</span>
+
+      <span class="nv">?result</span> <span class="k">a</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">QuantityValue</span> <span class="p">;</span>
+              <span class="nn">qudt</span><span class="p">:</span><span class="nt">value</span> <span class="nv">?value</span> <span class="p">;</span>
+              <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nv">?unit</span> <span class="p">.</span>
+
+      <span class="nv">?interval</span> <span class="nn">time</span><span class="p">:</span><span class="nt">hasBeginning</span> <span class="nv">?begin</span> <span class="p">;</span>
+                <span class="nn">time</span><span class="p">:</span><span class="nt">hasEnd</span> <span class="nv">?end</span> <span class="p">.</span>
+
+      <span class="nv">?begin</span> <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?beginDate</span> <span class="p">.</span>
+      <span class="nv">?end</span>   <span class="nn">time</span><span class="p">:</span><span class="nt">inXSDDateTimeStamp</span> <span class="nv">?endDate</span> <span class="p">.</span>
+
+      <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?infrastructureType</span> <span class="nn">skos</span><span class="p">:</span><span class="nt">prefLabel</span> <span class="nv">?typeLabel</span> <span class="p">}</span>
+
+      <span class="k">FILTER</span><span class="p">(</span>
+        <span class="nv">?beginDate</span> <span class="o">&gt;=</span> <span class="s">&quot;2025-01-01T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span> <span class="o">&amp;&amp;</span>
+        <span class="nv">?endDate</span>   <span class="o">&lt;=</span> <span class="s">&quot;2025-12-31T23:59:59Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTimeStamp</span>
+      <span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">GROUP BY</span> <span class="nv">?division</span> <span class="nv">?infrastructureElement</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> <span class="nv">?unit</span>
+  <span class="p">}</span>
+
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?division</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?divisionLabel</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?divisionLabel</span> <span class="nv">?infrastructureType</span> <span class="nv">?typeLabel</span> <span class="nv">?unit</span>
+<span class="k">ORDER BY</span> <span class="nv">?divisionLabel</span> <span class="nv">?typeLabel</span>
+</pre></div>
+
+                    </div>
+                    </section>
+        </div>
+    </body>
+    </html>
+    
