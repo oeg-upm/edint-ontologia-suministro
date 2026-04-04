@@ -581,6 +581,8 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.opengis.net/ont/geosparql#Feature"
+  }, {
+    "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/suministro#appliesTo",
